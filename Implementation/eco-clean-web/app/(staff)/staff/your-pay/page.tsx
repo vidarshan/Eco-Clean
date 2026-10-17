@@ -179,14 +179,12 @@ export default function YourPayPage() {
       size="lg"
       py="xl"
       px={{ base: "sm", sm: "md" }}
-      className="staff-app-page"
     >
       <Stack gap="xl">
         <Card
           withBorder
           radius="lg"
           p={{ base: "md", sm: "lg" }}
-          className="staff-app-surface staff-app-surface--hero"
         >
           <Stack gap="lg">
             <Group justify="space-between" align="end" gap="md">
@@ -246,7 +244,6 @@ export default function YourPayPage() {
               p={{ base: "md", sm: "lg" }}
               withBorder
               radius="lg"
-              className="staff-app-surface"
             >
               <Title order={4} mb="xs">
                 Earnings Distribution
@@ -256,17 +253,7 @@ export default function YourPayPage() {
                 for the latest statement.
               </Text>
 
-              <Box
-                h={320}
-                px="sm"
-                py="md"
-                style={{
-                  borderRadius: 16,
-                  border: "1px solid var(--mantine-color-gray-2)",
-                  background:
-                    "linear-gradient(180deg, rgba(248,249,250,0.9) 0%, rgba(255,255,255,1) 100%)",
-                }}
-              >
+              <Box h={320} px="sm" py="md">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
@@ -333,12 +320,7 @@ export default function YourPayPage() {
                 ytd={ytd.deductions}
               />
 
-              <Card
-                withBorder
-                p={{ base: "md", sm: "lg" }}
-                radius="lg"
-                bg="#e6f4ea"
-              >
+              <Card withBorder p={{ base: "md", sm: "lg" }} radius="lg">
                 <Group justify="space-between">
                   <Text fw={700} size="lg">
                     Net Earnings
@@ -365,7 +347,6 @@ export default function YourPayPage() {
           withBorder
           radius="lg"
           p={{ base: "md", sm: "lg" }}
-          className="staff-app-surface"
         >
           <Stack gap="md">
             <Group justify="space-between" align="end" gap="md">
@@ -431,7 +412,7 @@ export default function YourPayPage() {
                 </Group>
 
                 {result && (
-                  <Card withBorder radius="lg" className="staff-app-surface">
+                  <Card withBorder radius="lg">
                     <Text fw={700}>Summary</Text>
                     <Text mb="sm">{result.summary}</Text>
 
@@ -477,7 +458,6 @@ export default function YourPayPage() {
           withBorder
           radius="lg"
           p={{ base: "md", sm: "lg" }}
-          className="staff-app-surface"
         >
           <Group justify="center" gap="md" wrap="wrap">
             <Button
@@ -523,7 +503,6 @@ function SummaryBlock({
       withBorder
       p={{ base: "md", sm: "lg" }}
       radius="lg"
-      className="staff-app-surface"
     >
       <Group justify="space-between">
         <Text fw={700}>{title}</Text>

@@ -333,9 +333,9 @@ export default function ManagePayPeriodsPage() {
                         updateRow(index, "other", Number(val || 0))
                       }
                     />
-                    <ReadOnlyCell value={row.deductions} bg="#d9f0c7" />
-                    <ReadOnlyCell value={row.grossEarnings} bg="#d9f0c7" />
-                    <ReadOnlyCell value={row.netEarnings} bg="#d9f0c7" />
+                    <ReadOnlyCell value={row.deductions} />
+                    <ReadOnlyCell value={row.grossEarnings} />
+                    <ReadOnlyCell value={row.netEarnings} />
                   </Table.Tr>
                 ))}
 
@@ -343,9 +343,9 @@ export default function ManagePayPeriodsPage() {
                   <Table.Td colSpan={14}>
                     <Text fw={800}>Totals</Text>
                   </Table.Td>
-                  <ReadOnlyCell value={totals.deductions} bg="#b7e1a1" />
-                  <ReadOnlyCell value={totals.gross} bg="#b7e1a1" />
-                  <ReadOnlyCell value={totals.net} bg="#8fd16b" />
+                  <ReadOnlyCell value={totals.deductions} />
+                  <ReadOnlyCell value={totals.gross} />
+                  <ReadOnlyCell value={totals.net} />
                 </Table.Tr>
               </Table.Tbody>
             </Table>
@@ -380,10 +380,8 @@ function HeaderCell({ children }: { children: React.ReactNode }) {
   return (
     <Table.Th
       style={{
-        color: "white",
         textAlign: "center",
         minWidth: 120,
-        background: "#4ea72e",
         whiteSpace: "nowrap",
       }}
     >
@@ -440,13 +438,12 @@ function InputCell({
   );
 }
 
-function ReadOnlyCell({ value, bg }: { value: number; bg?: string }) {
+function ReadOnlyCell({ value }: { value: number }) {
   return (
     <Table.Td
       style={{
         textAlign: "right",
         fontWeight: 700,
-        background: bg || "transparent",
         minWidth: 130,
         whiteSpace: "nowrap",
       }}

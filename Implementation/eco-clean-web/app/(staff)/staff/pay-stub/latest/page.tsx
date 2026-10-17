@@ -142,14 +142,9 @@ export default function PayStubPage() {
   ];
 
   return (
-    <Container p="md" className="staff-app-page">
+    <Container p="md">
       <Stack gap="lg">
-        <Card
-          withBorder
-          radius="lg"
-          p="lg"
-          className="staff-app-surface staff-app-surface--hero"
-        >
+        <Card withBorder radius="lg" p="lg">
           <Stack gap="md">
             <Group justify="space-between" align="end" gap="md">
               <Box>
@@ -184,22 +179,9 @@ export default function PayStubPage() {
           </Stack>
         </Card>
 
-        <Card
-          withBorder
-          radius="lg"
-          p={{ base: "sm", sm: "md" }}
-          className="staff-app-surface"
-        >
+        <Card withBorder radius="lg" p={{ base: "sm", sm: "md" }}>
           <Stack gap="md">
-            <Box
-              p="md"
-              style={{
-                border: "1px solid var(--mantine-color-gray-3)",
-                borderRadius: 16,
-                background:
-                  "linear-gradient(180deg, rgba(248,249,250,0.95) 0%, rgba(255,255,255,1) 100%)",
-              }}
-            >
+            <Box p="md">
               <Group justify="space-between" align="end" gap="md">
                 <Box>
                   <Text fw={700}>Printable Statement</Text>

@@ -12,7 +12,6 @@ import {
   Text,
   ThemeIcon,
   UnstyledButton,
-  alpha,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import Image from "next/image";
@@ -162,21 +161,10 @@ export default function DashboardShell({
         breakpoint: "md",
         collapsed: { mobile: !mobileOpened, desktop: false },
       }}
-      className="app-shell-chrome"
     >
       <AppShell.Header withBorder={false} bg="transparent">
         <Box px="sm" pt="sm">
-          <Paper
-            radius={SHELL_RADIUS}
-            px="sm"
-            py="xs"
-            shadow="xs"
-            style={(theme) => ({
-              background: alpha(theme.white, 0.94),
-              border: `1px solid ${alpha(theme.colors.gray[3], 0.9)}`,
-              backdropFilter: "blur(14px)",
-            })}
-          >
+          <Paper radius={SHELL_RADIUS} px="sm" py="xs" shadow="xs" withBorder>
             <Group justify="space-between" wrap="nowrap">
               <Group gap="sm" wrap="nowrap">
                 <ThemeIcon
@@ -215,34 +203,23 @@ export default function DashboardShell({
 
       <AppShell.Navbar
         p={{ base: "sm", md: "md" }}
-        withBorder={false}
         onMouseEnter={() => {
           if (!isMobile) setHovered(true);
         }}
         onMouseLeave={() => {
           if (!isMobile) setHovered(false);
         }}
-        style={(theme) => ({
-          background:
-            "linear-gradient(180deg, rgba(247, 254, 231, 0.5), rgba(255, 255, 255, 0.96))",
-          borderRight: `1px solid ${alpha(theme.colors.lime[2], 0.42)}`,
-          boxShadow: `10px 0 30px ${alpha(theme.black, 0.04)}`,
+        style={{
           overflow: "hidden",
           transition: "width 220ms ease, padding 220ms ease",
-          backdropFilter: "blur(14px)",
-        })}
+        }}
       >
         <AppShell.Section>
           <Paper
             radius={SHELL_RADIUS}
             p={expanded ? "md" : "xs"}
-            style={(theme) => ({
-              background:
-                "linear-gradient(180deg, rgba(247, 254, 231, 0.9), rgba(255, 255, 255, 0.96))",
-              border: `1px solid ${alpha(theme.colors.lime[2], 0.45)}`,
-              boxShadow: `0 12px 28px ${alpha(theme.black, 0.05)}`,
-              transition: "padding 220ms ease",
-            })}
+            withBorder
+            style={{ transition: "padding 220ms ease" }}
           >
             <Group
               justify={expanded ? "space-between" : "center"}
@@ -295,27 +272,16 @@ export default function DashboardShell({
                 component={Link}
                 href={item.href}
                 onClick={() => setMobileOpened(false)}
-                style={(theme) => ({
+                bg={item.active ? "lime.0" : undefined}
+                style={{
                   display: "block",
                   width: "100%",
                   borderRadius: ITEM_RADIUS,
                   padding: expanded ? "12px 14px" : "10px 12px",
-                  background: item.active
-                    ? alpha(theme.colors.lime[0], 0.9)
-                    : alpha(theme.white, 0.64),
-                  border: `1px solid ${
-                    item.active
-                      ? alpha(theme.colors.lime[4], 0.32)
-                      : alpha(theme.colors.gray[3], 0.42)
-                  }`,
-                  boxShadow: item.active
-                    ? `0 10px 24px ${alpha(theme.colors.lime[9], 0.08)}`
-                    : "none",
-                  transition:
-                    "background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease, padding 220ms ease",
+                  transition: "background-color 150ms ease, padding 220ms ease",
                   opacity: isSigningOut ? 0.6 : 1,
                   pointerEvents: isSigningOut ? "none" : "auto",
-                })}
+                }}
               >
                 <Group
                   gap={expanded ? "sm" : 0}
@@ -367,19 +333,16 @@ export default function DashboardShell({
               type="button"
               onClick={handleLogout}
               disabled={isSigningOut}
-              style={(theme) => ({
+              bg="red.0"
+              style={{
                 display: "block",
                 width: "100%",
                 borderRadius: ITEM_RADIUS,
                 padding: expanded ? "12px 14px" : "10px 12px",
-                background: alpha(theme.colors.red[0], 0.75),
-                border: `1px solid ${alpha(theme.colors.red[2], 0.55)}`,
-                boxShadow: `0 10px 24px ${alpha(theme.black, 0.04)}`,
-                transition:
-                  "background-color 150ms ease, border-color 150ms ease, padding 220ms ease",
+                transition: "padding 220ms ease",
                 opacity: isSigningOut ? 0.7 : 1,
                 pointerEvents: isSigningOut ? "none" : "auto",
-              })}
+              }}
             >
               <Group
                 gap={expanded ? "sm" : 0}
@@ -417,11 +380,12 @@ export default function DashboardShell({
         </AppShell.Section>
       </AppShell.Navbar>
 
-      <AppShell.Main className="app-shell-main">
+      <AppShell.Main bg="transparent">
         <Container
           fluid
           onClick={handleMainClick}
-          className="app-shell-main__inner"
+          pt="0.5rem"
+          px={{ base: "0.15rem", md: "md" }}
         >
           {error && (
             <Alert

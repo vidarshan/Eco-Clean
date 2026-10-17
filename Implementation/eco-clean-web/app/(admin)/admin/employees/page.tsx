@@ -13,10 +13,10 @@ export default function EmployeesPage() {
         <Paper style={{ gridColumn: "span 12" }}>
           <Stack gap="lg">
             <div>
-              <Text fw={700} c="#0f172a">
+              <Text fw={700}>
                 Employee directory
               </Text>
-              <Text size="sm" c="#475569" mt={6}>
+              <Text size="sm" c="dimmed" mt={6}>
                 Search, sort, and open employee records from one consistent
                 working surface.
               </Text>

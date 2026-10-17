@@ -247,7 +247,12 @@ export default function StaffShell({
   ];
 
   return (
-    <Container p={0} mih="100vh" className="staff-shell__content">
+    <Container
+      p={0}
+      mih="100vh"
+      pos="relative"
+      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+    >
       <Drawer
         opened={drawerOpened}
         onClose={closeDrawer}
@@ -256,21 +261,9 @@ export default function StaffShell({
         size="72%"
         overlayProps={{ backgroundOpacity: 0.45, blur: 0 }}
         styles={{
-          header: {
-            background:
-              "linear-gradient(180deg, rgba(250, 252, 245, 0.98), rgba(244, 247, 236, 0.98))",
-          },
           body: {
             padding: 0,
             height: "100%",
-            background:
-              "linear-gradient(180deg, rgba(250, 252, 245, 0.98), rgba(244, 247, 236, 0.98))",
-          },
-          content: {
-            background:
-              "linear-gradient(180deg, rgba(250, 252, 245, 0.99), rgba(242, 247, 231, 0.99))",
-            borderRight: "1px solid rgba(190, 201, 166, 0.45)",
-            boxShadow: "14px 0 32px rgba(15, 23, 42, 0.12)",
           },
         }}
       >
@@ -279,7 +272,6 @@ export default function StaffShell({
             radius={PANEL_RADIUS}
             p="xs"
             withBorder
-            className="staff-shell-nav-card"
           >
             <Group justify="space-between" align="center" wrap="nowrap">
               <Group gap="sm" wrap="nowrap">
@@ -349,7 +341,12 @@ export default function StaffShell({
         refreshing={refreshing}
       />
 
-      <Box className="staff-shell__main">{children}</Box>
+      <Box
+        mih="calc(100vh - 68px)"
+        style={{ paddingBottom: "calc(0.9rem + env(safe-area-inset-bottom))" }}
+      >
+        {children}
+      </Box>
     </Container>
   );
 }

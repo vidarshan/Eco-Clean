@@ -313,20 +313,11 @@ export default function AdminTimesheetOverviewPage() {
             </Alert>
           ) : null}
 
-          <Paper
-            withBorder
-            radius="lg"
-            p="md"
-            className="admin-page-frame__stat"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(247, 254, 231, 0.78), rgba(255, 255, 255, 0.96))",
-            }}
-          >
+          <Paper withBorder radius="lg" p="md">
             <Stack gap="md">
               <Group justify="space-between" align="flex-end" gap="md">
                 <div>
-                  <Text fw={700} c="#0f172a">
+                  <Text fw={700}>
                     Timesheet review window
                   </Text>
                   <Text size="sm" c="dimmed" mt={4}>
@@ -383,12 +374,11 @@ export default function AdminTimesheetOverviewPage() {
                   withBorder
                   radius="lg"
                   p="md"
-                  className="admin-page-frame__stat"
                 >
                   <Text size="sm" c="dimmed">
                     Employees
                   </Text>
-                  <Text size="xl" fw={700} c="#0f172a" mt={6}>
+                  <Text size="xl" fw={700} mt={6}>
                     {summary.employeeCount}
                   </Text>
                 </Paper>
@@ -396,12 +386,11 @@ export default function AdminTimesheetOverviewPage() {
                   withBorder
                   radius="lg"
                   p="md"
-                  className="admin-page-frame__stat"
                 >
                   <Text size="sm" c="dimmed">
                     Planned
                   </Text>
-                  <Text size="xl" fw={700} c="#0f172a" mt={6}>
+                  <Text size="xl" fw={700} mt={6}>
                     {formatMinutes(summary.totalPlannedMinutes)}
                   </Text>
                 </Paper>
@@ -409,12 +398,11 @@ export default function AdminTimesheetOverviewPage() {
                   withBorder
                   radius="lg"
                   p="md"
-                  className="admin-page-frame__stat"
                 >
                   <Text size="sm" c="dimmed">
                     Actual
                   </Text>
-                  <Text size="xl" fw={700} c="#0f172a" mt={6}>
+                  <Text size="xl" fw={700} mt={6}>
                     {formatMinutes(summary.totalActualMinutes)}
                   </Text>
                 </Paper>
@@ -422,7 +410,6 @@ export default function AdminTimesheetOverviewPage() {
                   withBorder
                   radius="lg"
                   p="md"
-                  className="admin-page-frame__stat"
                 >
                   <Text size="sm" c="dimmed">
                     Variance
@@ -452,7 +439,6 @@ export default function AdminTimesheetOverviewPage() {
                     withBorder
                     radius="lg"
                     p="lg"
-                    className="admin-page-frame__surface"
                   >
                     <Stack gap="md">
                       <Group
@@ -461,7 +447,7 @@ export default function AdminTimesheetOverviewPage() {
                         gap="md"
                       >
                         <div>
-                          <Text size="lg" fw={700} c="#0f172a">
+                          <Text size="lg" fw={700}>
                             {employee.name}
                           </Text>
                           <Text size="sm" c="dimmed">
@@ -515,7 +501,6 @@ export default function AdminTimesheetOverviewPage() {
                           withBorder
                           radius="lg"
                           p="md"
-                          className="admin-page-frame__stat"
                         >
                           <Text size="sm" c="dimmed">
                             Planned
@@ -528,7 +513,6 @@ export default function AdminTimesheetOverviewPage() {
                           withBorder
                           radius="lg"
                           p="md"
-                          className="admin-page-frame__stat"
                         >
                           <Text size="sm" c="dimmed">
                             Actual
@@ -541,7 +525,6 @@ export default function AdminTimesheetOverviewPage() {
                           withBorder
                           radius="lg"
                           p="md"
-                          className="admin-page-frame__stat"
                         >
                           <Text size="sm" c="dimmed">
                             Variance
@@ -583,7 +566,6 @@ export default function AdminTimesheetOverviewPage() {
                                   withBorder
                                   radius="lg"
                                   p="md"
-                                  className="admin-page-frame__stat"
                                 >
                                   <Stack gap="md">
                                     <Group
@@ -592,7 +574,7 @@ export default function AdminTimesheetOverviewPage() {
                                       gap="md"
                                     >
                                       <div>
-                                        <Text fw={700} c="#0f172a">
+                                        <Text fw={700}>
                                           {day.date}
                                         </Text>
                                         <Text size="sm" c="dimmed" mt={4}>
@@ -665,7 +647,6 @@ export default function AdminTimesheetOverviewPage() {
                                             withBorder
                                             radius="lg"
                                             p="sm"
-                                            className="admin-page-frame__surface"
                                           >
                                             <Group
                                               justify="space-between"

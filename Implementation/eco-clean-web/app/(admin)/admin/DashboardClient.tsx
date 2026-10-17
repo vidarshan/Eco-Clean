@@ -361,15 +361,15 @@ export default function DashboardClient() {
           size="xs"
           fw={700}
           tt="uppercase"
-          c="#64748b"
+          c="dimmed"
           style={{ letterSpacing: "0.08em" }}
         >
           Admin overview
         </Text>
-        <Text fw={800} size="2rem" lh={1.1} mt={4} c="#0f172a">
+        <Text fw={800} size="2rem" lh={1.1} mt={4}>
           Dashboard
         </Text>
-        <Text size="sm" c="#475569" mt={6}>
+        <Text size="sm" c="dimmed" mt={6}>
           Manage appointments, scan workload, and adjust the schedule directly
           from the calendar.
         </Text>
@@ -381,7 +381,6 @@ export default function DashboardClient() {
           p={{ base: "md", md: "lg" }}
           radius="lg"
           withBorder
-          className="calendar-command-center"
         >
           <Flex
             justify="space-between"
@@ -391,7 +390,7 @@ export default function DashboardClient() {
             mb="lg"
           >
             <Box>
-              <Text fw={700} size="lg" c="#0f172a">
+              <Text fw={700} size="lg">
                 Schedule controls
               </Text>
               <Text fw={700} size="lg" mt={6}>
@@ -451,7 +450,6 @@ export default function DashboardClient() {
                 radius="lg"
                 p="md"
                 withBorder
-                className={`calendar-stat-card calendar-stat-card--${card.tone}`}
               >
                 <Text size="xs" tt="uppercase" fw={700} c="dimmed">
                   {card.label}
@@ -576,7 +574,12 @@ export default function DashboardClient() {
             />
           )}
 
-          <Box className="professional-calendar professional-calendar--admin admin-calendar-shell">
+          <Box
+            className="professional-calendar professional-calendar--admin"
+            w="100%"
+            miw={0}
+            style={{ overflowX: "auto" }}
+          >
             <FullCalendar
               key={calendarKey}
               ref={calendarRef}

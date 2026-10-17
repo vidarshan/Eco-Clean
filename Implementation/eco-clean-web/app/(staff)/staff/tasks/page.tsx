@@ -121,7 +121,8 @@ function CurrentlyWorkingCard({
   return (
     <Paper
       p="md"
-      className="staff-app-surface staff-app-surface--hero"
+      withBorder
+      radius="lg"
       onClick={() => onOpen(appointment.id)}
     >
       <Group justify="space-between" align="start" gap="md" wrap="nowrap">
@@ -131,7 +132,6 @@ function CurrentlyWorkingCard({
             radius="xl"
             color="lime"
             variant="light"
-            className="staff-currently-working-card__icon"
           >
             <Loader />
           </ThemeIcon>
@@ -142,7 +142,6 @@ function CurrentlyWorkingCard({
                 fw={800}
                 size="xs"
                 tt="uppercase"
-                className="staff-currently-working-card__eyebrow"
               >
                 Currently Running
               </Text>
@@ -151,7 +150,6 @@ function CurrentlyWorkingCard({
                 radius="xl"
                 color="lime"
                 variant="light"
-                className="staff-currently-working-card__badge"
               >
                 Live
               </Badge>
@@ -159,21 +157,16 @@ function CurrentlyWorkingCard({
             <Text
               size="lg"
               fw={700}
-              className="staff-currently-working-card__title"
             >
               {appointment.job.title}
             </Text>
-            <Text
-              size="sm"
-              fw={700}
-              className="staff-currently-working-card__title"
-            >
+            <Text size="sm" fw={700}>
               {formatSeconds(remainingSeconds)} remaining
             </Text>
           </Stack>
         </Group>
 
-        <Text size="sm" fw={700} className="staff-currently-working-card__cta">
+        <Text size="sm" fw={700}>
           Open
         </Text>
       </Group>
@@ -367,14 +360,14 @@ const Page = () => {
 
   if (error) {
     return (
-      <Container py="md" bg="#f5f6f7" mih="100vh">
+      <Container py="md" mih="100vh">
         <Text c="red">Failed to load tasks</Text>
       </Container>
     );
   }
 
   return (
-    <Container p={0} className="staff-app-page">
+    <Container p={0}>
       <LocalNotificationDemo />
       <Stack gap="lg" p="md">
         {currentDayTasks.map(
@@ -391,12 +384,7 @@ const Page = () => {
               />
             ),
         )}
-        <Card
-          radius="lg"
-          withBorder
-          p="lg"
-          className="staff-app-surface staff-app-surface--hero"
-        >
+        <Card radius="lg" withBorder p="lg">
           <Stack gap="md">
             <Group justify="space-between" align="end" gap="md">
               <Box>
@@ -421,7 +409,6 @@ const Page = () => {
               color="lime"
               radius="xl"
               onChange={(v) => setValue(v || "upcoming")}
-              className="staff-app-segmented"
               data={[
                 { value: "upcoming", label: "Upcoming" },
                 { value: "cancelled", label: "Cancelled" },
@@ -488,7 +475,7 @@ const Page = () => {
 
         <Stack gap="md">
           {isLoading ? (
-            <Card radius="lg" withBorder p="lg" className="staff-app-surface">
+            <Card radius="lg" withBorder p="lg">
               <Flex direction="column" align="center" justify="center" py="md">
                 <Loader />
                 <Text size="sm" fw={600} mt="sm">
@@ -497,13 +484,13 @@ const Page = () => {
               </Flex>
             </Card>
           ) : error ? (
-            <Card radius="lg" withBorder p="lg" className="staff-app-surface">
+            <Card radius="lg" withBorder p="lg">
               <Text c="red" size="sm">
                 We couldn&apos;t load your tasks.
               </Text>
             </Card>
           ) : filteredTasks.length === 0 ? (
-            <Card radius="lg" withBorder p="lg" className="staff-app-surface">
+            <Card radius="lg" withBorder p="lg">
               <Text c="dimmed">
                 Nothing is waiting for you in this section.
               </Text>
@@ -520,7 +507,6 @@ const Page = () => {
                     withBorder
                     radius="lg"
                     p="lg"
-                    className="staff-app-surface"
                     style={{ cursor: "pointer" }}
                     onClick={() => router.push(`/staff/tasks/${task.id}`)}
                   >

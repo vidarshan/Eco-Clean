@@ -55,7 +55,6 @@ import ChecklistEditor, {
   ChecklistDraftItem,
 } from "../appointments/ChecklistEditor";
 import ImageViewer from "../media/ImageViewer";
-import classes from "./JobModal.module.css";
 import Loader from "../UI/Loader";
 
 interface Props {
@@ -921,9 +920,8 @@ export default function NewJobModal({
         key={note.id}
         radius="md"
         p="md"
-        className={classes.subCard}
       >
-        <div className={classes.subCardHeader}>
+        <Group justify="space-between" align="center" gap="sm" mb="sm" wrap="wrap">
           <Group gap="xs">
             <Badge variant="light" color="gray" radius="xl">
               Note {index + 1}
@@ -939,7 +937,7 @@ export default function NewJobModal({
           >
             Remove Note
           </Button>
-        </div>
+        </Group>
         <Grid>
           <Grid.Col span={{ base: 12, sm: 6 }}>
             <TextInput
@@ -1006,7 +1004,6 @@ export default function NewJobModal({
 
           <Grid.Col span={12}>
             <Dropzone
-              className={classes.dropzone}
               accept={["image/png", "image/jpeg", "image/webp"]}
               maxFiles={10}
               disabled={isBusy}
@@ -1074,7 +1071,9 @@ export default function NewJobModal({
                         radius="xl"
                         color="red"
                         variant="filled"
-                        className={classes.thumbAction}
+                        pos="absolute"
+                        top="0.35rem"
+                        right="0.35rem"
                         onClick={() => removeNoteImage(index, img.fileKey)}
                         disabled={isBusy}
                       >
@@ -1154,9 +1153,8 @@ export default function NewJobModal({
           key={appt.id}
           radius="md"
           p="md"
-          className={classes.subCard}
         >
-          <div className={classes.subCardHeader}>
+          <Group justify="space-between" align="center" gap="sm" mb="sm" wrap="wrap">
             <Group gap="xs">
               <Badge variant="light" color="gray" radius="xl">
                 Appointment {index + 1}
@@ -1181,7 +1179,7 @@ export default function NewJobModal({
             >
               Remove
             </Button>
-          </div>
+          </Group>
           <Grid>
             <Grid.Col span={{ base: 12, sm: 4 }}>
               <DatePickerInput
@@ -1305,23 +1303,16 @@ export default function NewJobModal({
       closeOnClickOutside={!isBusy}
       closeOnEscape={!isBusy}
       withCloseButton={!isBusy}
-      classNames={{
-        content: "app-modal__content",
-        header: "app-modal__header",
-        title: "app-modal__title",
-        body: "app-modal__body",
-      }}
     >
       <ScrollArea.Autosize mah="75dvh" offsetScrollbars>
         <form onSubmit={form.onSubmit(handleSubmit)}>
-          <Stack gap="md" className={classes.shell} pb="xs">
+          <Stack gap="md" pb="xs">
             {(isUploading || isSubmitting) && (
               <Paper
                 p="sm"
                 radius="md"
                 withBorder
                 bg="gray.0"
-                className={classes.statusBanner}
               >
                 <Group gap="xs">
                   <Loader />
@@ -1334,22 +1325,23 @@ export default function NewJobModal({
               </Paper>
             )}
 
-            <Paper withBorder radius="md" p="lg" className={classes.heroCard}>
+            <Paper withBorder radius="md" p="lg">
               <Stack gap="md">
                 <Group justify="space-between" align="flex-start" wrap="wrap">
                   <Stack gap={4}>
                     <Text
                       size="xs"
                       fw={800}
-                      c="#64748b"
-                      className={classes.sectionEyebrow}
+                      c="dimmed"
+                      tt="uppercase"
+                      lts="0.08em"
                     >
                       Scheduling Workspace
                     </Text>
-                    <Text size="xl" fw={800} c="#0f172a">
+                    <Text size="xl" fw={800}>
                       Build the job and its first visits in one pass
                     </Text>
-                    <Text size="sm" c="#475569" maw={620}>
+                    <Text size="sm" c="dimmed" maw={620}>
                       Set the client, service details, schedule, assignees,
                       checklist, and internal notes before the job goes live.
                     </Text>
@@ -1371,17 +1363,17 @@ export default function NewJobModal({
                   />
                 </Group>
 
-                <div className={classes.heroMeta}>
-                  <span className={classes.summaryChip}>
+                <Group gap="xs">
+                  <Badge variant="light" color="gray" radius="xl" size="lg">
                     {form.values.lineItems.length} service
                     {form.values.lineItems.length === 1 ? "" : "s"}
-                  </span>
-                  <span className={classes.summaryChip}>
+                  </Badge>
+                  <Badge variant="light" color="gray" radius="xl" size="lg">
                     {form.values.jobType === "RECURRING"
                       ? "Recurring plan"
                       : `${form.values.appointments.length} appointment${form.values.appointments.length === 1 ? "" : "s"}`}
-                  </span>
-                  <span className={classes.summaryChip}>
+                  </Badge>
+                  <Badge variant="light" color="gray" radius="xl" size="lg">
                     {
                       form.values.notes.filter(
                         (note) =>
@@ -1399,11 +1391,11 @@ export default function NewJobModal({
                     ).length === 1
                       ? ""
                       : "s"}
-                  </span>
-                  <span className={classes.summaryChip}>
+                  </Badge>
+                  <Badge variant="light" color="gray" radius="xl" size="lg">
                     {form.values.clientId ? "Client selected" : "Choose client"}
-                  </span>
-                </div>
+                  </Badge>
+                </Group>
               </Stack>
             </Paper>
 
@@ -1411,24 +1403,24 @@ export default function NewJobModal({
               withBorder
               radius="md"
               p="lg"
-              className={classes.sectionCard}
             >
               <Stack gap="md">
-                <div className={classes.sectionHeader}>
+                <Group justify="space-between" align="flex-start" gap="sm" wrap="wrap">
                   <Stack gap={2}>
                     <Text
                       size="xs"
                       fw={800}
-                      c="#64748b"
-                      className={classes.sectionEyebrow}
+                      c="dimmed"
+                      tt="uppercase"
+                      lts="0.08em"
                     >
                       Core Details
                     </Text>
-                    <Text fw={800} c="#0f172a">
+                    <Text fw={800}>
                       Client, address, and visit setup
                     </Text>
                   </Stack>
-                </div>
+                </Group>
 
                 <TextInput
                   label="Title"
@@ -1513,20 +1505,20 @@ export default function NewJobModal({
               withBorder
               radius="md"
               p="lg"
-              className={classes.sectionCard}
             >
               <Stack gap="md">
-                <div className={classes.sectionHeader}>
+                <Group justify="space-between" align="flex-start" gap="sm" wrap="wrap">
                   <Stack gap={2}>
                     <Text
                       size="xs"
                       fw={800}
-                      c="#64748b"
-                      className={classes.sectionEyebrow}
+                      c="dimmed"
+                      tt="uppercase"
+                      lts="0.08em"
                     >
                       Services
                     </Text>
-                    <Text fw={800} c="#0f172a">
+                    <Text fw={800}>
                       Define what is being delivered
                     </Text>
                   </Stack>
@@ -1538,7 +1530,7 @@ export default function NewJobModal({
                   >
                     Add Line Item
                   </Button>
-                </div>
+                </Group>
 
                 {form.values.lineItems.map((item, index) => (
                   <Paper
@@ -1546,9 +1538,8 @@ export default function NewJobModal({
                     radius="md"
                     p="md"
                     key={item.id}
-                    className={classes.subCard}
                   >
-                    <div className={classes.subCardHeader}>
+                    <Group justify="space-between" align="center" gap="sm" mb="sm" wrap="wrap">
                       <Badge variant="light" color="gray" radius="xl">
                         Line Item {index + 1}
                       </Badge>
@@ -1562,7 +1553,7 @@ export default function NewJobModal({
                       >
                         Remove
                       </Button>
-                    </div>
+                    </Group>
                     <Grid>
                       <Grid.Col span={{ base: 12, sm: 6 }}>
                         <TextInput
@@ -1619,24 +1610,24 @@ export default function NewJobModal({
                 withBorder
                 radius="md"
                 p="lg"
-                className={classes.sectionCard}
               >
                 <Stack gap="md">
-                  <div className={classes.sectionHeader}>
+                  <Group justify="space-between" align="flex-start" gap="sm" wrap="wrap">
                     <Stack gap={2}>
                       <Text
                         size="xs"
                         fw={800}
-                        c="#64748b"
-                        className={classes.sectionEyebrow}
+                        c="dimmed"
+                        tt="uppercase"
+                        lts="0.08em"
                       >
                         Recurrence
                       </Text>
-                      <Text fw={800} c="#0f172a">
+                      <Text fw={800}>
                         Control how often this job repeats
                       </Text>
                     </Stack>
-                  </div>
+                  </Group>
 
                   <Grid>
                     <Grid.Col span={{ base: 12, sm: 6 }}>
@@ -1745,20 +1736,20 @@ export default function NewJobModal({
               withBorder
               radius="md"
               p="lg"
-              className={classes.sectionCard}
             >
               <Stack gap="md">
-                <div className={classes.sectionHeader}>
+                <Group justify="space-between" align="flex-start" gap="sm" wrap="wrap">
                   <Stack gap={2}>
                     <Text
                       size="xs"
                       fw={800}
-                      c="#64748b"
-                      className={classes.sectionEyebrow}
+                      c="dimmed"
+                      tt="uppercase"
+                      lts="0.08em"
                     >
                       Appointments
                     </Text>
-                    <Text fw={800} c="#0f172a">
+                    <Text fw={800}>
                       Plan who goes, when, and what gets checked off
                     </Text>
                   </Stack>
@@ -1770,7 +1761,7 @@ export default function NewJobModal({
                   >
                     Add Appointment
                   </Button>
-                </div>
+                </Group>
 
                 {renderAppointments()}
               </Stack>
@@ -1780,20 +1771,20 @@ export default function NewJobModal({
               withBorder
               radius="md"
               p="lg"
-              className={classes.sectionCard}
             >
               <Stack gap="md">
-                <div className={classes.sectionHeader}>
+                <Group justify="space-between" align="flex-start" gap="sm" wrap="wrap">
                   <Stack gap={2}>
                     <Text
                       size="xs"
                       fw={800}
-                      c="#64748b"
-                      className={classes.sectionEyebrow}
+                      c="dimmed"
+                      tt="uppercase"
+                      lts="0.08em"
                     >
                       Job Notes
                     </Text>
-                    <Text fw={800} c="#0f172a">
+                    <Text fw={800}>
                       Capture internal context and supporting images
                     </Text>
                   </Stack>
@@ -1805,7 +1796,7 @@ export default function NewJobModal({
                   >
                     Add Note
                   </Button>
-                </div>
+                </Group>
 
                 {renderJobNotes()}
               </Stack>

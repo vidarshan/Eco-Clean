@@ -92,23 +92,6 @@ function mapJobLineItems(items?: LineItem[]) {
   }));
 }
 
-const sectionPaperStyles = {
-  root: {
-    background:
-      "linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.96))",
-    border: "1px solid rgba(203, 213, 225, 0.75)",
-    boxShadow: "0 10px 24px rgba(148, 163, 184, 0.1)",
-  },
-} as const;
-
-const lineItemPaperStyles = {
-  root: {
-    background:
-      "linear-gradient(180deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.98))",
-    border: "1px solid rgba(203, 213, 225, 0.78)",
-  },
-} as const;
-
 export default function JobEditModal({ onSuccess }: Props) {
   const { editJobOpen, closeEditJob, selectedJobId, selectedApptId } =
     useDashboardUI();
@@ -382,12 +365,6 @@ export default function JobEditModal({ onSuccess }: Props) {
       size="xl"
       centered
       closeOnClickOutside={false}
-      classNames={{
-        content: "app-modal__content",
-        header: "app-modal__header",
-        title: "app-modal__title",
-        body: "app-modal__body",
-      }}
     >
       {isLoading ? (
         <Loader />
@@ -397,7 +374,7 @@ export default function JobEditModal({ onSuccess }: Props) {
             onSubmit={form.onSubmit((values) => updateMutation.mutate(values))}
           >
             <Stack gap="md" pb="xs">
-            <Paper withBorder radius="md" p="lg" styles={sectionPaperStyles} className="app-modal__section">
+            <Paper withBorder radius="md" p="lg">
               <Stack gap="md">
                 <Group justify="space-between" align="flex-start" wrap="wrap">
                   <Stack gap={2}>
@@ -473,7 +450,7 @@ export default function JobEditModal({ onSuccess }: Props) {
             </Paper>
 
             {job.type === "RECURRING" && (
-              <Paper withBorder radius="md" p="lg" styles={sectionPaperStyles} className="app-modal__section">
+              <Paper withBorder radius="md" p="lg">
                 <Stack gap="md">
                   <Group justify="space-between" align="flex-start" wrap="wrap">
                     <Stack gap={2}>
@@ -566,7 +543,7 @@ export default function JobEditModal({ onSuccess }: Props) {
               </Paper>
             )}
 
-            <Paper withBorder radius="md" p="lg" styles={sectionPaperStyles} className="app-modal__section">
+            <Paper withBorder radius="md" p="lg">
               <Group
                 mb="sm"
                 justify="space-between"
@@ -591,13 +568,7 @@ export default function JobEditModal({ onSuccess }: Props) {
 
               <Stack gap="sm">
                 {form.values.lineItems.map((item, index) => (
-                  <Paper
-                    key={item.id}
-                    withBorder
-                    radius="md"
-                    p="md"
-                    styles={lineItemPaperStyles}
-                  >
+                  <Paper key={item.id} withBorder radius="md" p="md">
                     <Group justify="space-between" align="flex-start" mb="xs">
                       <Badge variant="light" radius="md" color="gray">
                         Item {index + 1}

@@ -81,7 +81,6 @@ function ActionTile({
       withBorder
       radius="lg"
       p="md"
-      className="staff-app-surface quick-action-card"
       onClick={onClick}
     >
       <Stack gap={6}>
@@ -106,7 +105,7 @@ function SectionCard({
   children: React.ReactNode;
 }) {
   return (
-    <Card withBorder radius="lg" p="lg" className="staff-app-surface">
+    <Card withBorder radius="lg" p="lg">
       <Stack gap="md">
         <Box>
           <Text size="xs" fw={700} c="dimmed" tt="uppercase">
@@ -135,7 +134,7 @@ function SummaryStat({
   icon: React.ReactNode;
 }) {
   return (
-    <Paper withBorder radius="lg" p="md" className="staff-app-surface">
+    <Paper withBorder radius="lg" p="md">
       <Group justify="space-between" align="flex-start" wrap="nowrap">
         <Box>
           <Text size="sm" c="dimmed">
@@ -241,13 +240,12 @@ export default function StaffProfileWorkspace() {
   }
 
   return (
-    <Container p={0} className="staff-app-page">
-      <Stack className="staff-page-stack">
+    <Container p={0}>
+      <Stack gap="sm" p="sm">
         <Card
           withBorder
           radius="lg"
           p="lg"
-          className="staff-app-surface staff-app-surface--hero"
         >
           <Stack gap="lg">
             <Grid gutter="lg" align="stretch">
@@ -294,7 +292,6 @@ export default function StaffProfileWorkspace() {
                   withBorder
                   radius="lg"
                   p="md"
-                  className="staff-app-surface"
                 >
                   <Stack gap="sm" h="100%" justify="space-between">
                     <Box>
@@ -347,7 +344,7 @@ export default function StaffProfileWorkspace() {
 
             <SimpleGrid
               cols={{ base: 1, sm: 2, lg: 4 }}
-              className="staff-summary-grid"
+              spacing="sm"
             >
               <SummaryStat
                 label="Full name"
@@ -412,7 +409,6 @@ export default function StaffProfileWorkspace() {
                       withBorder
                       radius="lg"
                       p="md"
-                      className="staff-app-surface"
                     >
                       <Text size="xs" fw={700} c="dimmed" tt="uppercase">
                         Staff role
@@ -425,7 +421,6 @@ export default function StaffProfileWorkspace() {
                       withBorder
                       radius="lg"
                       p="md"
-                      className="staff-app-surface"
                     >
                       <Text size="xs" fw={700} c="dimmed" tt="uppercase">
                         Staff identifier
@@ -531,7 +526,7 @@ export default function StaffProfileWorkspace() {
                 <Stack gap="md">
                   <SimpleGrid
                     cols={{ base: 1, sm: 2, xl: 1 }}
-                    className="staff-form-grid"
+                    spacing="sm"
                   >
                     <ActionTile
                       title="Enter Time"
@@ -566,9 +561,10 @@ export default function StaffProfileWorkspace() {
 
 function CenterPage() {
   return (
-    <Container p={0} className="staff-app-page">
+    <Container p={0}>
       <Stack
-        className="staff-page-stack"
+        gap="sm"
+        p="sm"
         align="center"
         justify="center"
         mih="50vh"

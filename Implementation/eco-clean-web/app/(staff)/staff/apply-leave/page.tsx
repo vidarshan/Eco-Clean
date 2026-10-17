@@ -473,7 +473,7 @@ export default function ApplyLeavePage() {
               />
             )}
 
-            <Card withBorder radius="lg" p="lg" className="staff-app-surface">
+            <Card withBorder radius="lg" p="lg">
               <Stack gap="sm">
                 <Group justify="space-between" wrap="wrap">
                   <Text fw={700}>Recent requests</Text>

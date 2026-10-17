@@ -26,22 +26,22 @@ export default function AdminPageFrame({
   children,
 }: AdminPageFrameProps) {
   return (
-    <Box className="admin-page-frame">
+    <Box>
       <Group justify="space-between" align="flex-end" gap="md" mb="lg">
         <Box maw={720}>
           <Text
             size="xs"
             fw={700}
             tt="uppercase"
-            c="#64748b"
+            c="dimmed"
             style={{ letterSpacing: "0.08em" }}
           >
             {eyebrow}
           </Text>
-          <Text size="2rem" fw={700} lh={1.2} mt={4} c="#0f172a">
+          <Text size="2rem" fw={700} lh={1.2} mt={4}>
             {title}
           </Text>
-          <Text size="sm" mt={6} c="#475569">
+          <Text size="sm" mt={6} c="dimmed">
             {description}
           </Text>
         </Box>
@@ -57,14 +57,13 @@ export default function AdminPageFrame({
               radius="md"
               p="md"
               withBorder
-              className="admin-page-frame__stat"
             >
               <Group justify="space-between" align="flex-start" wrap="nowrap">
                 <Box>
-                  <Text size="xs" fw={600} c="#64748b">
+                  <Text size="xs" fw={600} c="dimmed">
                     {stat.label}
                   </Text>
-                  <Text size="lg" fw={700} mt={6} c="#111827">
+                  <Text size="lg" fw={700} mt={6}>
                     {stat.value}
                   </Text>
                 </Box>
@@ -81,7 +80,6 @@ export default function AdminPageFrame({
         radius="md"
         p={{ base: "md", md: "lg" }}
         withBorder
-        className="admin-page-frame__surface"
       >
         {children}
       </Paper>

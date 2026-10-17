@@ -382,7 +382,7 @@ export default function EnterTimePage() {
 
   if (loadingPeriods) {
     return (
-      <Container p={0} className="staff-app-page">
+      <Container p={0}>
         <Center mih="70vh">
           <Loader />
         </Center>
@@ -391,13 +391,12 @@ export default function EnterTimePage() {
   }
 
   return (
-    <Container p={0} className="staff-app-page">
+    <Container p={0}>
       <Stack gap="md" p="md">
         <Card
           radius="lg"
           withBorder
           p="lg"
-          className="staff-app-surface staff-app-surface--hero"
         >
           <Stack gap="xs">
             <Title order={3}>Enter Time</Title>
@@ -431,7 +430,7 @@ export default function EnterTimePage() {
           </SimpleGrid>
         </Card>
 
-        <Card radius="lg" withBorder p="lg" className="staff-app-surface">
+        <Card radius="lg" withBorder p="lg">
           <Stack gap="md">
             <Group justify="space-between" align="end" wrap="wrap">
               <Box
@@ -522,7 +521,7 @@ export default function EnterTimePage() {
           </Stack>
         </Card>
 
-        <Card radius="lg" withBorder p="lg" className="staff-app-surface">
+        <Card radius="lg" withBorder p="lg">
           <Stack gap="sm">
               <Text fw={700}>Week summary</Text>
             {isMobile ? (

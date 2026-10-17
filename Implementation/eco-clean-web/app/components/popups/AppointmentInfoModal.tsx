@@ -58,8 +58,6 @@ import ChecklistEditor, {
   createChecklistDraftItem,
 } from "../appointments/ChecklistEditor";
 import ImageViewer from "../media/ImageViewer";
-
-import classes from "./AppointmentInfoModal.module.css";
 import Loader from "../UI/Loader";
 
 type AppointmentCache = AppointmentWithRelations;
@@ -204,7 +202,7 @@ function ReadOnlyItem({
   value: React.ReactNode;
 }) {
   return (
-    <Paper withBorder radius="md" p="sm" className={classes.infoCard}>
+    <Paper withBorder radius="md" p="sm">
       <Group align="flex-start" wrap="nowrap">
         <ThemeIcon variant="light" size="lg" radius="md" color="lime">
           {icon}
@@ -233,7 +231,7 @@ function MetricCard({
   meta?: React.ReactNode;
 }) {
   return (
-    <Paper withBorder radius="md" p="md" className={classes.metricCard}>
+    <Paper withBorder radius="md" p="md" mih="7.5rem">
       <Text size="xs" fw={700} tt="uppercase" c="dimmed">
         {label}
       </Text>
@@ -582,12 +580,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
         onClose={handleClose}
         centered
         closeOnClickOutside={false}
-        classNames={{
-          content: "app-modal__content",
-          header: "app-modal__header",
-          title: "app-modal__title",
-          body: "app-modal__body",
-        }}
       >
         {isLoading ? <Loader /> : null}
       </Modal>
@@ -602,12 +594,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
       onClose={handleClose}
       centered
       closeOnClickOutside={false}
-      classNames={{
-        content: "app-modal__content",
-        header: "app-modal__header",
-        title: "app-modal__title",
-        body: "app-modal__body",
-      }}
     >
       {isLoading ? (
         <Loader />
@@ -625,7 +611,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                   withBorder
                   radius="md"
                   p="lg"
-                  className={classes.heroCard}
                 >
                   <Group
                     justify="space-between"
@@ -731,7 +716,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                       withBorder
                       radius="md"
                       p="lg"
-                      className={classes.sectionCard}
                     >
                       <Group mb="md" gap="xs">
                         <ThemeIcon radius="md" variant="light" color="blue">
@@ -801,7 +785,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                           withBorder
                           radius="md"
                           p="sm"
-                          className={classes.infoCard}
                         >
                           <Group
                             justify="space-between"
@@ -825,7 +808,7 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                               </Text>
                             </Box>
 
-                            <Stack gap="xs" className={classes.timeAdjustments}>
+                            <Stack gap="xs" align="flex-end">
                               {[
                                 {
                                   field: "startTime" as const,
@@ -842,13 +825,13 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                                   key={field}
                                   gap="xs"
                                   wrap="wrap"
-                                  className={classes.timeAdjustmentRow}
+                                  justify="flex-end"
                                 >
                                   <Text
                                     size="xs"
                                     fw={700}
                                     c="dimmed"
-                                    className={classes.timeAdjustmentLabel}
+                                    miw="4.75rem"
                                   >
                                     {label}
                                   </Text>
@@ -919,7 +902,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                       withBorder
                       radius="md"
                       p="lg"
-                      className={classes.sectionCard}
                     >
                       <Group mb="md" gap="xs">
                         <ThemeIcon radius="md" variant="light" color="teal">
@@ -951,7 +933,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                                 withBorder
                                 radius="md"
                                 p="sm"
-                                className={classes.timelineCard}
                               >
                                 <Group
                                   justify="space-between"
@@ -1001,7 +982,7 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                                         <Group
                                           key={session.id}
                                           justify="space-between"
-                                          className={classes.inlineRow}
+                                          py="0.3rem"
                                         >
                                           <Text size="sm">
                                             {sessionLabel}:{" "}
@@ -1036,7 +1017,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                       withBorder
                       radius="md"
                       p="lg"
-                      className={classes.sectionCard}
                     >
                       <Group mb="md" gap="xs">
                         <ThemeIcon radius="md" variant="light" color="lime">
@@ -1067,7 +1047,7 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                             <Group
                               key={item.id}
                               justify="space-between"
-                              className={classes.inlineRow}
+                              py="0.3rem"
                             >
                               <Text size="sm" fw={item.isCompleted ? 700 : 500}>
                                 {item.label}
@@ -1090,7 +1070,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                       withBorder
                       radius="md"
                       p="lg"
-                      className={classes.sectionCard}
                     >
                       <Group mb="md" gap="xs">
                         <ThemeIcon radius="md" variant="light" color="orange">
@@ -1123,7 +1102,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                               withBorder
                               radius="md"
                               p="sm"
-                              className={classes.timelineCard}
                             >
                               <Group
                                 justify="space-between"
@@ -1185,7 +1163,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                                     size="sm"
                                     variant="filled"
                                     color="dark"
-                                    className={classes.thumbnailAction}
                                     loading={deleteImageMutation.isPending}
                                     onClick={() =>
                                       deleteImageMutation.mutate(img.id)
@@ -1206,7 +1183,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                       withBorder
                       radius="md"
                       p="lg"
-                      className={classes.sectionCard}
                     >
                       <Group mb="md" gap="xs">
                         <ThemeIcon radius="md" variant="light" color="grape">
@@ -1265,7 +1241,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                           withBorder
                           radius="md"
                           p="md"
-                          className={classes.infoCard}
                         >
                           <Text
                             size="xs"
@@ -1285,7 +1260,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                           withBorder
                           radius="md"
                           p="md"
-                          className={classes.infoCard}
                         >
                           <Text
                             size="xs"
@@ -1313,7 +1287,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                           radius="md"
                           p="md"
                           mt="md"
-                          className={classes.infoCard}
                         >
                           <Text
                             size="xs"
@@ -1341,7 +1314,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                               withBorder
                               radius="md"
                               p="sm"
-                              className={classes.timelineCard}
                             >
                               <Group
                                 justify="space-between"
@@ -1381,7 +1353,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                               withBorder
                               radius="md"
                               p="sm"
-                              className={classes.timelineCard}
                             >
                               <Group
                                 justify="space-between"
@@ -1447,7 +1418,6 @@ export default function AppointmentInfoModal({ onSuccess }: Props) {
                   withBorder
                   radius="md"
                   p="md"
-                  className={classes.footerBar}
                 >
                   <Group justify="space-between" wrap="wrap">
                     <Text size="sm" c="dimmed">

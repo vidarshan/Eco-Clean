@@ -67,14 +67,9 @@ export default function PayHistoryPage() {
   }
 
   return (
-    <Container fluid px="md" py="xl" className="staff-app-page">
+    <Container fluid px="md" py="xl">
       <Stack gap="lg">
-        <Card
-          withBorder
-          radius="lg"
-          p="lg"
-          className="staff-app-surface staff-app-surface--hero"
-        >
+        <Card withBorder radius="lg" p="lg">
           <Stack gap="md">
             <Group justify="space-between" align="end" gap="md">
               <Box>
@@ -97,7 +92,7 @@ export default function PayHistoryPage() {
           </Stack>
         </Card>
 
-        <Card withBorder radius="lg" p="md" className="staff-app-surface">
+        <Card withBorder radius="lg" p="md">
           {isMobile ? (
             <Stack gap="md">
               {statements.length === 0 ? (
@@ -109,7 +104,6 @@ export default function PayHistoryPage() {
                     withBorder
                     radius="lg"
                     p="md"
-                    className="staff-app-surface"
                   >
                     <Stack gap="sm">
                       <Group justify="space-between" align="start">

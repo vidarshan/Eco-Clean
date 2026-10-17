@@ -341,18 +341,12 @@ export default function ClientPropertyModal({
       closeOnClickOutside={!isBusy}
       closeOnEscape={!isBusy}
       withCloseButton={!isBusy}
-      classNames={{
-        content: "app-modal__content",
-        header: "app-modal__header",
-        title: "app-modal__title",
-        body: "app-modal__body",
-      }}
     >
       <ScrollArea.Autosize mah="75dvh" offsetScrollbars>
         <form onSubmit={form.onSubmit(handleSubmit)}>
           <Stack gap="lg" pb="xs">
             {(clientLoading || mutation.isPending) && (
-              <Paper withBorder p="sm" radius="md" className="app-modal__banner">
+              <Paper withBorder p="sm" radius="md">
                 <Group gap="xs">
                   <Loader />
                   <Text size="sm">
@@ -365,16 +359,16 @@ export default function ClientPropertyModal({
             )}
 
             {clientError && clientId ? (
-              <Paper withBorder p="sm" radius="md" className="app-modal__banner">
-                <Text size="sm" className="app-modal__danger-text">
+              <Paper withBorder p="sm" radius="md">
+                <Text size="sm">
                   Failed to load client details.
                 </Text>
               </Paper>
             ) : null}
 
-            <Paper withBorder radius="md" p="lg" className="app-modal__hero">
+            <Paper withBorder radius="md" p="lg">
               <Stack gap={4}>
-                <Text size="xs" fw={800} c="dimmed" className="app-modal__eyebrow">
+                <Text size="xs" fw={800} c="dimmed">
                   Client Record
                 </Text>
                 <Title order={4}>{clientId ? "Update client details" : "Create a client profile"}</Title>
@@ -384,7 +378,7 @@ export default function ClientPropertyModal({
               </Stack>
             </Paper>
 
-            <Paper withBorder radius="md" p="lg" className="app-modal__section">
+            <Paper withBorder radius="md" p="lg">
               <Grid>
                 <Grid.Col span={12}>
                   <Title order={5}>Primary contact details</Title>
@@ -488,7 +482,7 @@ export default function ClientPropertyModal({
               </Grid>
             </Paper>
 
-            <Paper withBorder radius="md" p="lg" className="app-modal__section">
+            <Paper withBorder radius="md" p="lg">
               <Grid>
                 <Grid.Col span={12}>
                   <Title order={5}>Property address</Title>
@@ -501,7 +495,7 @@ export default function ClientPropertyModal({
                 <Grid.Col span={12}>
                 <Stack gap="md">
                   {form.values.addresses.map((_, index) => (
-                    <Paper key={index} withBorder p="md" radius="md" className="app-modal__subsection">
+                    <Paper key={index} withBorder p="md" radius="md">
                       <Stack>
                         <Group justify="space-between">
                           <strong>Address {index + 1}</strong>
@@ -630,7 +624,7 @@ export default function ClientPropertyModal({
               </Grid>
             </Paper>
 
-            <Paper withBorder radius="md" p="lg" className="app-modal__section">
+            <Paper withBorder radius="md" p="lg">
               <Grid>
                 <Grid.Col span={12}>
                   <Title order={5}>Add notes</Title>
@@ -693,12 +687,6 @@ export default function ClientPropertyModal({
         onClose={() => setConfirmDeleteOpen(false)}
         title="Delete client"
         centered
-        classNames={{
-          content: "app-modal__content",
-          header: "app-modal__header",
-          title: "app-modal__title",
-          body: "app-modal__body",
-        }}
       >
         <Stack gap="md">
           <Text size="sm">

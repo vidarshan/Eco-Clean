@@ -45,13 +45,7 @@ export default function LoginPage() {
   }
 
   return (
-    <Box
-      mih="100vh"
-      style={{
-        background:
-          "radial-gradient(circle at top left, rgba(132, 204, 22, 0.18), transparent 24%), radial-gradient(circle at bottom right, rgba(163, 230, 53, 0.16), transparent 22%), linear-gradient(180deg, #f8fafc 0%, #f3f7ec 100%)",
-      }}
-    >
+    <Box mih="100vh">
       <Container size="sm" py="xl" h="100vh">
         <Flex h="100%" align="center" justify="center">
           <Card
@@ -60,24 +54,10 @@ export default function LoginPage() {
             p="xl"
             w="100%"
             maw={520}
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,252,0.96))",
-              borderColor: "rgba(203, 213, 225, 0.9)",
-              boxShadow: "0 24px 60px rgba(15, 23, 42, 0.12)",
-            }}
           >
             <Stack gap="lg">
               <Flex justify="center">
-                <Box
-                  p="sm"
-                  style={{
-                    borderRadius: "24px",
-                    background:
-                      "linear-gradient(180deg, rgba(247, 254, 231, 1), rgba(255, 255, 255, 1))",
-                    boxShadow: "inset 0 0 0 1px rgba(132, 204, 22, 0.18)",
-                  }}
-                >
+                <Box p="sm">
                   <Image
                     src="/logo.png"
                     alt="Eco Clean"

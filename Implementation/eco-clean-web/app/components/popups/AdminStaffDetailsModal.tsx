@@ -267,15 +267,9 @@ export default function AdminStaffDetailsModal({
           overflowY: "auto",
         },
       }}
-      classNames={{
-        content: "app-modal__content",
-        header: "app-modal__header",
-        title: "app-modal__title",
-        body: "app-modal__body",
-      }}
     >
       <Stack gap="md">
-        <Paper withBorder radius="md" p="lg" className="app-modal__hero">
+        <Paper withBorder radius="md" p="lg">
           <Group justify="space-between" align="flex-start" wrap="wrap">
             <Group align="flex-start" wrap="nowrap" gap="md">
               <ThemeIcon
@@ -283,7 +277,6 @@ export default function AdminStaffDetailsModal({
                 radius="md"
                 color="lime"
                 variant="light"
-                className="app-modal__icon"
               >
                 <IoPerson size={22} />
               </ThemeIcon>
@@ -321,7 +314,7 @@ export default function AdminStaffDetailsModal({
 
         {activeView === "overview" ? (
           <>
-            <Paper withBorder radius="md" p="lg" className="app-modal__section">
+            <Paper withBorder radius="md" p="lg">
               <Stack gap="md">
                 <Group gap="sm">
                   <ThemeIcon
@@ -329,7 +322,6 @@ export default function AdminStaffDetailsModal({
                     size="lg"
                     variant="light"
                     color="blue"
-                    className="app-modal__icon"
                   >
                     <IoShield size={18} />
                   </ThemeIcon>
@@ -401,7 +393,6 @@ export default function AdminStaffDetailsModal({
                   withBorder
                   radius="md"
                   p="lg"
-                  className="app-modal__section"
                 >
                   <Stack gap="md">
                     <Group gap="sm">
@@ -410,7 +401,6 @@ export default function AdminStaffDetailsModal({
                         size="lg"
                         variant="light"
                         color="orange"
-                        className="app-modal__icon"
                       >
                         <IoHome size={18} />
                       </ThemeIcon>
@@ -450,7 +440,6 @@ export default function AdminStaffDetailsModal({
                   withBorder
                   radius="md"
                   p="lg"
-                  className="app-modal__section"
                 >
                   <Stack gap="md">
                     <Group gap="sm">
@@ -459,7 +448,6 @@ export default function AdminStaffDetailsModal({
                         size="lg"
                         variant="light"
                         color="grape"
-                        className="app-modal__icon"
                       >
                         <IoCall size={18} />
                       </ThemeIcon>
@@ -502,7 +490,7 @@ export default function AdminStaffDetailsModal({
             </Grid>
           </>
         ) : (
-          <Paper withBorder radius="md" p="lg" className="app-modal__section">
+          <Paper withBorder radius="md" p="lg">
             <Stack gap="md">
               <Group gap="sm">
                 <ThemeIcon
@@ -510,7 +498,6 @@ export default function AdminStaffDetailsModal({
                   size="lg"
                   variant="light"
                   color="teal"
-                  className="app-modal__icon"
                 >
                   <IoCard size={18} />
                 </ThemeIcon>
@@ -536,7 +523,6 @@ export default function AdminStaffDetailsModal({
                 withBorder
                 radius="md"
                 p="md"
-                className="app-modal__subsection"
               >
                 <Stack gap="md">
                   <Text fw={700}>Bank details</Text>
@@ -590,7 +576,6 @@ export default function AdminStaffDetailsModal({
                 withBorder
                 radius="md"
                 p="md"
-                className="app-modal__subsection"
               >
                 <Stack gap="md">
                   <Text fw={700}>TD1 tax details</Text>
@@ -678,14 +663,13 @@ function SimpleStatGrid({
     <Grid>
       {items.map((item) => (
         <Grid.Col key={item.label} span={{ base: 12, sm: 6 }}>
-          <Paper withBorder radius="md" p="md" className="app-modal__footer">
+          <Paper withBorder radius="md" p="md">
             <Group align="flex-start" wrap="nowrap">
               <ThemeIcon
                 radius="md"
                 size="lg"
                 variant="light"
                 color="gray"
-                className="app-modal__icon"
               >
                 {item.icon}
               </ThemeIcon>

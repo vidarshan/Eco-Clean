@@ -14,10 +14,10 @@ export default function ClientsPage() {
           <Stack gap="lg">
             <Group justify="space-between" align="flex-start" gap="md">
               <div>
-                <Text fw={700} c="#0f172a">
+                <Text fw={700}>
                   Client directory
                 </Text>
-                <Text size="sm" c="#475569" mt={6}>
+                <Text size="sm" c="dimmed" mt={6}>
                   Search, sort, and open client records without the page title
                   competing with the working area below.
                 </Text>

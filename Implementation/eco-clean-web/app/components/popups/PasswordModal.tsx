@@ -20,17 +20,11 @@ export function PasswordModal({
       onClose={onClose}
       title="Temporary Password"
       centered
-      classNames={{
-        content: "app-modal__content",
-        header: "app-modal__header",
-        title: "app-modal__title",
-        body: "app-modal__body",
-      }}
     >
       <Stack gap="md">
-        <Paper withBorder radius="md" p="lg" className="app-modal__hero">
+        <Paper withBorder radius="md" p="lg">
           <Stack gap={4}>
-            <Text size="xs" fw={800} c="dimmed" className="app-modal__eyebrow">
+            <Text size="xs" fw={800} c="dimmed">
               Credential Handoff
             </Text>
             <Text fw={800}>Temporary password</Text>
@@ -40,11 +34,11 @@ export function PasswordModal({
           </Stack>
         </Paper>
 
-        <Paper withBorder radius="md" p="md" className="app-modal__section">
+        <Paper withBorder radius="md" p="md">
           <Code block>{password}</Code>
         </Paper>
 
-        <Paper withBorder radius="md" p="md" className="app-modal__footer">
+        <Paper withBorder radius="md" p="md">
           <Group justify="flex-end">
             <Button onClick={() => clipboard.copy(password)}>
               {clipboard.copied ? "Copied!" : "Copy"}

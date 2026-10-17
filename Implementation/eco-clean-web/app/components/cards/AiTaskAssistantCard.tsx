@@ -32,62 +32,11 @@ export default function AiTaskAssistantCard({ data }: Props) {
   );
 
   return (
-    <Card
-      radius="lg"
-      withBorder
-      shadow="sm"
-      p="md"
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        background: `
-          radial-gradient(circle at top right, rgba(236, 72, 153, 0.14), transparent 30%),
-          radial-gradient(circle at bottom left, rgba(168, 85, 247, 0.12), transparent 28%),
-          linear-gradient(135deg, rgba(253, 242, 248, 0.96) 0%, rgba(250, 245, 255, 0.98) 45%, rgba(255, 255, 255, 1) 100%)
-        `,
-        border: "1px solid rgba(236, 72, 153, 0.18)",
-        boxShadow:
-          "0 8px 24px rgba(236, 72, 153, 0.08), 0 2px 8px rgba(168, 85, 247, 0.06)",
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          top: -36,
-          right: -28,
-          width: 140,
-          height: 140,
-          borderRadius: "50%",
-          background: "rgba(236, 72, 153, 0.16)",
-          filter: "blur(28px)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: -26,
-          left: -18,
-          width: 120,
-          height: 120,
-          borderRadius: "50%",
-          background: "rgba(168, 85, 247, 0.12)",
-          filter: "blur(24px)",
-          pointerEvents: "none",
-        }}
-      />
-
-      <Stack gap="md" style={{ position: "relative", zIndex: 1 }}>
+    <Card radius="lg" withBorder shadow="sm" p="md">
+      <Stack gap="md">
         <Group justify="space-between" align="center">
           <Group gap="xs" justify="space-between">
-            <ThemeIcon
-              radius="lg"
-              variant="filled"
-              style={{
-                background: "linear-gradient(135deg, #ec4899 0%, #a855f7 100%)",
-                boxShadow: "0 6px 16px rgba(236, 72, 153, 0.24)",
-              }}
-            >
+            <ThemeIcon radius="lg" variant="filled" color="grape">
               <IoSparkles size={16} />
             </ThemeIcon>
             <Title order={4}>AI Overview</Title>
@@ -131,10 +80,7 @@ export default function AiTaskAssistantCard({ data }: Props) {
                       radius="lg"
                       size={18}
                       variant="filled"
-                      style={{
-                        background:
-                          "linear-gradient(135deg, rgba(236, 72, 153, 0.92), rgba(168, 85, 247, 0.92))",
-                      }}
+                      color="grape"
                     >
                       <IoCheckmarkCircle size={12} />
                     </ThemeIcon>
@@ -159,32 +105,16 @@ export default function AiTaskAssistantCard({ data }: Props) {
                         : 0;
 
                     return (
-                      <Stack
-                        gap={4}
-                        key={index}
-                        style={{
-                          background: "rgba(255, 255, 255, 0.52)",
-                          border: "1px solid rgba(236, 72, 153, 0.08)",
-                          borderRadius: 10,
-                          padding: "10px 12px",
-                        }}
-                      >
+                      <Stack gap={4} key={index} p="xs">
                         <Group justify="space-between" align="center">
                           <Text size="sm">{item.label}</Text>
                           <Text size="xs" c="dimmed">
                             {item.minutes} min
                           </Text>
                         </Group>
-                        <Progress
-                          value={percent}
-                          radius="xl"
-                          size="sm"
-                          style={{
-                            background: "rgba(236, 72, 153, 0.08)",
-                          }}
-                        />
+                        <Progress value={percent} radius="xl" size="sm" />
                         {index !== data.timePlan.length - 1 ? (
-                          <Divider mt={6} color="rgba(236, 72, 153, 0.10)" />
+                          <Divider mt={6} />
                         ) : null}
                       </Stack>
                     );
@@ -229,10 +159,7 @@ export default function AiTaskAssistantCard({ data }: Props) {
                       radius="lg"
                       size={18}
                       variant="filled"
-                      style={{
-                        background:
-                          "linear-gradient(135deg, rgba(236, 72, 153, 0.92), rgba(168, 85, 247, 0.92))",
-                      }}
+                      color="grape"
                     >
                       <IoCheckmarkCircle size={12} />
                     </ThemeIcon>

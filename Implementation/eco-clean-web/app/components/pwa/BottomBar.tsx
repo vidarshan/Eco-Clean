@@ -6,7 +6,7 @@ import {
   Group,
   Paper,
   Text,
-  Box,
+  UnstyledButton,
   ThemeIcon,
 } from "@mantine/core";
 import {
@@ -41,7 +41,6 @@ export default function BottomBar() {
       left={0}
       right={0}
       radius={0}
-      className="staff-bottom-bar"
     >
       <Group justify="space-around" py="xs" px="xs" wrap="nowrap">
         {TABS.map(({ href, label, Icon }) => {
@@ -49,25 +48,29 @@ export default function BottomBar() {
             pathname === href || (href !== "/" && pathname?.startsWith(href));
 
           return (
-            <Box
+            <UnstyledButton
               component={Link}
               href={href}
               key={label}
-              className={`staff-bottom-bar__item${active ? " staff-bottom-bar__item--active" : ""}`}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 2,
+              }}
             >
               <ThemeIcon
                 size={34}
                 radius="xl"
                 variant={active ? "filled" : "light"}
                 color={active ? "lime" : "gray"}
-                className="staff-bottom-bar__icon"
               >
                 {Icon}
               </ThemeIcon>
-              <Text fw={700} size="xs" className="staff-bottom-bar__label">
+              <Text fw={700} size="xs" c={active ? "lime" : "dimmed"}>
                 {label}
               </Text>
-            </Box>
+            </UnstyledButton>
           );
         })}
       </Group>

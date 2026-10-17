@@ -64,23 +64,8 @@ const AIStaffSuggestionCard = ({
     !!aiSuggestion;
 
   return (
-    <Card
-      radius="lg"
-      p="md"
-      withBorder
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        background:
-          "linear-gradient(135deg, #f5f3ff 0%, #ede9fe 40%, #fdf2f8 100%)",
-        border: "1px solid rgba(139, 92, 246, 0.15)",
-        boxShadow:
-          "0 12px 30px rgba(139, 92, 246, 0.08), inset 0 1px 0 rgba(255,255,255,0.6)",
-      }}
-    >
-      <Box />
-
-      <Stack gap="md" style={{ position: "relative", zIndex: 1 }}>
+    <Card radius="lg" p="md" withBorder>
+      <Stack gap="md">
         <Group justify="space-between" align="flex-start">
           <Group gap="sm" align="center">
             <ActionIcon radius="xl" variant="light" color="pink" size="lg">

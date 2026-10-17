@@ -262,7 +262,6 @@ export default function AdminPayStubPage({ params }: PageProps) {
             withBorder
             radius="lg"
             p="lg"
-            className="admin-page-frame__stat"
           >
             <Grid gutter="md">
               <Grid.Col span={{ base: 12, md: 4 }}>
@@ -301,7 +300,6 @@ export default function AdminPayStubPage({ params }: PageProps) {
             withBorder
             radius="lg"
             p={{ base: "md", md: "xl" }}
-            className="admin-page-frame__surface"
           >
             <Stack gap="xl">
               <Group justify="space-between" align="flex-start" wrap="nowrap">
@@ -310,13 +308,9 @@ export default function AdminPayStubPage({ params }: PageProps) {
                     style={{
                       width: 72,
                       height: 72,
-                      borderRadius: 20,
-                      background:
-                        "linear-gradient(180deg, rgba(247, 254, 231, 0.98), rgba(255, 255, 255, 0.98))",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      border: "1px solid rgba(132, 204, 22, 0.24)",
                     }}
                   >
                     <Image
@@ -328,7 +322,7 @@ export default function AdminPayStubPage({ params }: PageProps) {
                   </Box>
 
                   <div>
-                    <Text fw={800} size="xl" c="#0f172a">
+                    <Text fw={800} size="xl">
                       Eco-Clean Services
                     </Text>
                     <Text size="sm" c="dimmed">
@@ -341,9 +335,8 @@ export default function AdminPayStubPage({ params }: PageProps) {
                   withBorder
                   radius="lg"
                   p="sm"
-                  className="admin-page-frame__stat"
                 >
-                  <Text size="xs" tt="uppercase" fw={700} c="#64748b">
+                  <Text size="xs" tt="uppercase" fw={700} c="dimmed">
                     Pay Date
                   </Text>
                   <Text fw={700} mt={4}>
@@ -358,9 +351,8 @@ export default function AdminPayStubPage({ params }: PageProps) {
                     withBorder
                     radius="lg"
                     p="md"
-                    className="admin-page-frame__stat"
                   >
-                    <Text size="xs" tt="uppercase" fw={700} c="#64748b">
+                    <Text size="xs" tt="uppercase" fw={700} c="dimmed">
                       Employee
                     </Text>
                     <Text fw={700} mt={6}>
@@ -376,9 +368,8 @@ export default function AdminPayStubPage({ params }: PageProps) {
                     withBorder
                     radius="lg"
                     p="md"
-                    className="admin-page-frame__stat"
                   >
-                    <Text size="xs" tt="uppercase" fw={700} c="#64748b">
+                    <Text size="xs" tt="uppercase" fw={700} c="dimmed">
                       Pay Period
                     </Text>
                     <Text fw={700} mt={6}>
@@ -391,8 +382,8 @@ export default function AdminPayStubPage({ params }: PageProps) {
 
               <Stack gap="sm">
                 <Group gap="xs">
-                  <IoDocumentText size={18} color="#0f172a" />
-                  <Text fw={700} c="#0f172a">
+                  <IoDocumentText size={18} />
+                  <Text fw={700}>
                     Earnings
                   </Text>
                 </Group>
@@ -435,8 +426,8 @@ export default function AdminPayStubPage({ params }: PageProps) {
 
               <Stack gap="sm">
                 <Group gap="xs">
-                  <IoCash size={18} color="#0f172a" />
-                  <Text fw={700} c="#0f172a">
+                  <IoCash size={18} />
+                  <Text fw={700}>
                     Deductions
                   </Text>
                 </Group>
@@ -484,10 +475,10 @@ export default function AdminPayStubPage({ params }: PageProps) {
               <Divider />
 
               <Group justify="space-between" align="center">
-                <Text fw={800} size="lg" c="#0f172a">
+                <Text fw={800} size="lg">
                   Net earnings
                 </Text>
-                <Text fw={800} size="1.6rem" c="#4d7c0f">
+                <Text fw={800} size="1.6rem" c="lime.8">
                   {formatMoney(data.netEarnings)}
                 </Text>
               </Group>

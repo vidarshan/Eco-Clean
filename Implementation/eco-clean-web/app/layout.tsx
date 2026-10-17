@@ -4,15 +4,15 @@ import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/dropzone/styles.css";
 import "@mantine/notifications/styles.css";
-import { Comic_Neue } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/lib/query-provider";
 import {
   ColorSchemeScript,
   MantineProvider,
-  createTheme,
   mantineHtmlProps,
 } from "@mantine/core";
+import { theme } from "./theme";
 import { Notifications } from "@mantine/notifications";
 import PWARegister from "./_pwa_register";
 
@@ -37,157 +37,12 @@ export const viewport: Viewport = {
   maximumScale: 1,
   userScalable: false,
   viewportFit: "cover",
-  themeColor: "#84cc16",
+  themeColor: "#4eb220",
 };
 
-const comicNeue = Comic_Neue({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  variable: "--font-comic-neue",
-});
-
-const SHARED_RADIUS = "xl";
-
-const theme = createTheme({
-  defaultRadius: SHARED_RADIUS,
-  radius: {
-    xs: "8px",
-    sm: "10px",
-    md: "14px",
-    lg: "18px",
-    xl: "22px",
-  },
-  primaryColor: "lime",
-  fontFamily: "Comic Neue, sans-serif",
-  headings: {
-    fontFamily: "Comic Neue, sans-serif",
-  },
-  components: {
-    Button: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "md",
-        color: "lime",
-      },
-    },
-    Badge: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "md",
-      },
-    },
-    Paper: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-      },
-    },
-    ThemeIcon: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-      },
-    },
-    Card: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-      },
-    },
-    Modal: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-      },
-    },
-    Drawer: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-      },
-    },
-    Menu: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-      },
-    },
-    Popover: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-      },
-    },
-    ActionIcon: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "md",
-      },
-    },
-    TextInput: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "sm",
-      },
-    },
-    PasswordInput: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "sm",
-      },
-    },
-    Textarea: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "sm",
-      },
-    },
-    Select: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "sm",
-      },
-    },
-    MultiSelect: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "sm",
-      },
-    },
-    NumberInput: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "sm",
-      },
-    },
-    SegmentedControl: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "sm",
-      },
-    },
-    DatePickerInput: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "sm",
-      },
-    },
-    DateInput: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "sm",
-      },
-    },
-    TimeInput: {
-      defaultProps: {
-        radius: SHARED_RADIUS,
-        size: "sm",
-      },
-    },
-    Checkbox: {
-      defaultProps: {
-        size: "sm",
-      },
-    },
-    Radio: {
-      defaultProps: {
-        size: "sm",
-      },
-    },
-  },
+  variable: "--font-playfair",
 });
 
 export default function RootLayout({
@@ -198,10 +53,10 @@ export default function RootLayout({
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
-        <ColorSchemeScript />
+        <ColorSchemeScript defaultColorScheme="light" />
       </head>
-      <body className={`${comicNeue.variable} antialiased`}>
-        <MantineProvider theme={theme}>
+      <body className={`${playfair.variable} antialiased`}>
+        <MantineProvider theme={theme} defaultColorScheme="light">
           <Notifications position="top-right" />
           <QueryProvider>
             <PWARegister />

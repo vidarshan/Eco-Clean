@@ -19,22 +19,35 @@ const TopBar = ({
   onHome,
 }: Props) => {
   return (
-    <Box pos="sticky" top={0} className="staff-topbar">
-      <Box className="staff-topbar__inner">
-        <Flex align="center" gap="xs" className="staff-topbar__lead">
+    <Box
+      pos="sticky"
+      top={0}
+      style={{
+        zIndex: 120,
+        paddingTop: "max(env(safe-area-inset-top), 0.15rem)",
+      }}
+    >
+      <Group
+        justify="space-between"
+        align="center"
+        gap="sm"
+        py="10px"
+        px="sm"
+        mih={{ base: "3.7rem", xs: "3.9rem" }}
+      >
+        <Flex align="center" gap="xs" miw={0} flex={1}>
           <ThemeIcon
             variant="light"
             color="lime"
             radius="lg"
             size={42}
             onClick={onClick}
-            className="staff-topbar__nav-icon"
           >
             {back ? <IoArrowBack size={22} /> : <IoMenu size={24} />}
           </ThemeIcon>
 
           <Box style={{ minWidth: 0, flex: 1 }}>
-            <Text size="lg" fw={700} className="staff-topbar__title" truncate>
+            <Text size="lg" fw={700} truncate>
               {title}
             </Text>
           </Box>
@@ -48,7 +61,6 @@ const TopBar = ({
               variant="light"
               aria-label="Go home"
               onClick={onHome}
-              className="staff-topbar__refresh"
             >
               <IoHome size={20} />
             </ActionIcon>
@@ -61,13 +73,12 @@ const TopBar = ({
             aria-label="Refresh"
             onClick={onRefresh}
             disabled={!onRefresh || refreshing}
-            className="staff-topbar__refresh"
             style={{ visibility: onRefresh ? "visible" : "hidden" }}
           >
             <IoRefresh size={20} />
           </ActionIcon>
         </Group>
-      </Box>
+      </Group>
     </Box>
   );
 };

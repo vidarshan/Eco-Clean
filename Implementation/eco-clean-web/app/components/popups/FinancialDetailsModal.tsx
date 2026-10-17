@@ -210,22 +210,16 @@ export default function FinancialDetailsModal({
       title="Financial Details"
       size="lg"
       centered
-      classNames={{
-        content: "app-modal__content",
-        header: "app-modal__header",
-        title: "app-modal__title",
-        body: "app-modal__body",
-      }}
     >
       <Stack gap="md">
-        <Paper withBorder radius="md" p="lg" className="app-modal__hero">
+        <Paper withBorder radius="md" p="lg">
           <Group justify="space-between" align="flex-start" wrap="wrap">
             <Group align="flex-start" wrap="nowrap" gap="md">
-              <ThemeIcon size={48} radius="md" color="teal" variant="light" className="app-modal__icon">
+              <ThemeIcon size={48} radius="md" color="teal" variant="light">
                 <IoCard size={22} />
               </ThemeIcon>
               <Stack gap={4}>
-                <Text size="xs" fw={800} c="dimmed" className="app-modal__eyebrow">
+                <Text size="xs" fw={800} c="dimmed">
                   Payroll Setup
                 </Text>
                 <Text fw={800} size="lg">
@@ -246,11 +240,11 @@ export default function FinancialDetailsModal({
           <Alert color="gray">Loading financial details...</Alert>
         ) : null}
 
-        <Paper withBorder radius="md" p="lg" className="app-modal__section">
+        <Paper withBorder radius="md" p="lg">
           <Stack gap="md">
             <Group justify="space-between" align="center" wrap="wrap">
               <Group gap="sm">
-                <ThemeIcon radius="md" size="lg" variant="light" color="blue" className="app-modal__icon">
+                <ThemeIcon radius="md" size="lg" variant="light" color="blue">
                   <IoCard size={18} />
                 </ThemeIcon>
                 <Stack gap={2}>
@@ -314,10 +308,10 @@ export default function FinancialDetailsModal({
           </Stack>
         </Paper>
 
-        <Paper withBorder radius="md" p="lg" className="app-modal__section">
+        <Paper withBorder radius="md" p="lg">
           <Stack gap="md">
             <Group gap="sm">
-              <ThemeIcon radius="md" size="lg" variant="light" color="grape" className="app-modal__icon">
+              <ThemeIcon radius="md" size="lg" variant="light" color="grape">
                 <IoShieldCheckmark size={18} />
               </ThemeIcon>
               <Stack gap={2}>
@@ -389,10 +383,10 @@ export default function FinancialDetailsModal({
           </Stack>
         </Paper>
 
-        <Paper withBorder radius="md" p="md" className="app-modal__footer">
+        <Paper withBorder radius="md" p="md">
           <Group justify="space-between" wrap="wrap">
             <Group gap="xs">
-              <ThemeIcon radius="md" size="md" variant="light" color="gray" className="app-modal__icon">
+              <ThemeIcon radius="md" size="md" variant="light" color="gray">
                 <IoLockClosed size={14} />
               </ThemeIcon>
               <Text size="sm" c="dimmed">
@@ -422,7 +416,7 @@ export default function FinancialDetailsModal({
 
 function InfoStat({ label, value }: { label: string; value: string }) {
   return (
-    <Paper withBorder radius="md" p="md" className="app-modal__subsection">
+    <Paper withBorder radius="md" p="md">
       <Text size="xs" fw={700} c="dimmed">
         {label}
       </Text>

@@ -1,9 +1,12 @@
 'use client';
 
 import {
+  Badge,
   Box,
   Button,
+  Card,
   Container,
+  Stack,
   Text,
   Title,
   Grid,
@@ -145,88 +148,150 @@ export default function PayStubPage() {
   ];
 
   return (
-    <Container py="xl">
-      <Group justify="center" mb="md">
-        <Button
-          onClick={handleDownloadPdf}
-        >
-          Download PDF
-        </Button>
-      </Group>
+    <Container p="md">
+      <Stack gap="lg">
+        <Card withBorder radius="lg" p="lg">
+          <Stack gap="md">
+            <Group justify="space-between" align="end" gap="md">
+              <Box>
+                <Title order={3}>Pay Statement</Title>
+                <Text size="sm" c="dimmed" mt={4}>
+                  Review this earnings summary or download a printable
+                  statement.
+                </Text>
+              </Box>
 
-      <Box ref={pdfRef} p="lg" bg="white" mt="md" style={{ border: '1px solid black' }}>
+              <Button variant="default" radius="lg" size="md" onClick={handleDownloadPdf}>
+                Download PDF
+              </Button>
+            </Group>
 
-        {/* HEADER */}
-        <Grid mb="md">
-          <Grid.Col span={3}>
-            <Image src="/logo.png" alt="logo" width={80} height={80} />
-          </Grid.Col>
+            <Group gap="sm" wrap="wrap">
+              <Badge variant="light" color="lime">
+                Net ${formatAmount(latest.netEarnings)}
+              </Badge>
+              <Badge variant="light" color="blue">
+                Gross ${formatAmount(latest.grossEarnings)}
+              </Badge>
+              <Badge variant="light" color="gray">
+                Pay Date {formatDate(latest.payDate)}
+              </Badge>
+            </Group>
+          </Stack>
+        </Card>
 
-          <Grid.Col span={9}>
-            <Title order={3}>STATEMENT OF EARNINGS</Title>
-            <Text size="sm">
-              Pay Period: {formatDate(latest.payPeriodStart)} -{' '}
-              {formatDate(latest.payPeriodEnd)}
-            </Text>
-          </Grid.Col>
-        </Grid>
+        <Card withBorder radius="lg" p={{ base: "sm", sm: "md" }}>
+          <Stack gap="md">
+            <Box p="md">
+              <Group justify="space-between" align="end" gap="md">
+                <Box>
+                  <Text fw={700}>Printable Statement</Text>
+                  <Text size="sm" c="dimmed" mt={4}>
+                    This section mirrors the exported PDF layout and keeps the
+                    official earnings and deductions breakdown together.
+                  </Text>
+                </Box>
 
-        {/* EMPLOYEE INFO */}
-        <Box mb="md" p="sm" style={{ border: '1px solid black' }}>
-          <Grid>
-            <Grid.Col span={6}>
-              <Text><b>Employee:</b> {employeeName}</Text>
-              <Text><b>Employee ID:</b> {employeeId}</Text>
-            </Grid.Col>
+                <Badge variant="light" color="gray">
+                  Official Copy
+                </Badge>
+              </Group>
+            </Box>
 
-            <Grid.Col span={6}>
-              <Text><b>Pay Date:</b> {formatDate(latest.payDate)}</Text>
-              <Text><b>Department:</b> Cleaning Services</Text>
-            </Grid.Col>
-          </Grid>
-        </Box>
+            <Box
+              ref={pdfRef}
+              p="lg"
+              bg="white"
+              style={{ border: "1px solid black", borderRadius: 16 }}
+            >
+              {/* HEADER */}
+              <Grid mb="md" align="center">
+                <Grid.Col span={3}>
+                  <Image src="/logo.png" alt="logo" width={80} height={80} />
+                </Grid.Col>
 
-        {/* EARNINGS TABLE */}
-        <TableHeader title="Earnings" />
+                <Grid.Col span={9}>
+                  <Stack gap={4}>
+                    <Title order={3}>STATEMENT OF EARNINGS</Title>
+                    <Text size="sm">
+                      Pay Period: {formatDate(latest.payPeriodStart)} -{' '}
+                      {formatDate(latest.payPeriodEnd)}
+                    </Text>
+                  </Stack>
+                </Grid.Col>
+              </Grid>
 
-        {rows.map((r) => (
-          <TableRow key={r.label} {...r} />
-        ))}
+              {/* EMPLOYEE INFO */}
+              <Box
+                mb="md"
+                p="sm"
+                style={{ border: "1px solid black", borderRadius: 16 }}
+              >
+                <Grid>
+                  <Grid.Col span={6}>
+                    <Text><b>Employee:</b> {employeeName}</Text>
+                    <Text><b>Employee ID:</b> {employeeId}</Text>
+                  </Grid.Col>
 
-        <TableTotal
-          label="Gross Earnings"
-          amount={latest.grossEarnings}
-          ytd={ytd.gross}
-        />
+                  <Grid.Col span={6}>
+                    <Text><b>Pay Date:</b> {formatDate(latest.payDate)}</Text>
+                    <Text><b>Department:</b> Cleaning Services</Text>
+                  </Grid.Col>
+                </Grid>
+              </Box>
 
-        {/* DEDUCTIONS */}
-        <TableHeader title="Deductions" />
+              {/* EARNINGS TABLE */}
+              <TableHeader title="Earnings" />
 
-        {deductions.map((d) => (
-          <TableRow key={d.label} label={d.label} amount={d.amount} ytd={d.ytd} />
-        ))}
+              {rows.map((r) => (
+                <TableRow key={r.label} {...r} />
+              ))}
 
-        <TableTotal
-          label="Total Deductions"
-          amount={latest.totalDeductions}
-          ytd={ytd.deductions}
-        />
+              <TableTotal
+                label="Gross Earnings"
+                amount={latest.grossEarnings}
+                ytd={ytd.gross}
+              />
 
-        {/* NET */}
-        <Box mt="md" p="sm" style={{ border: '2px solid black', background: '#d4edda' }}>
-          <Grid>
-            <Grid.Col span={6}>
-              <Text fw={700}>Net Earnings</Text>
-            </Grid.Col>
-            <Grid.Col span={3}>
-              <Text ta="right">{formatAmount(latest.netEarnings)}</Text>
-            </Grid.Col>
-            <Grid.Col span={3}>
-              <Text ta="right">{ytd.net?.toFixed(2)}</Text>
-            </Grid.Col>
-          </Grid>
-        </Box>
-      </Box>
+              {/* DEDUCTIONS */}
+              <TableHeader title="Deductions" />
+
+              {deductions.map((d) => (
+                <TableRow key={d.label} label={d.label} amount={d.amount} ytd={d.ytd} />
+              ))}
+
+              <TableTotal
+                label="Total Deductions"
+                amount={latest.totalDeductions}
+                ytd={ytd.deductions}
+              />
+
+              {/* NET */}
+              <Box
+                mt="md"
+                p="sm"
+                style={{
+                  border: "2px solid black",
+                  background: "#d4edda",
+                  borderRadius: 16,
+                }}
+              >
+                <Grid>
+                  <Grid.Col span={6}>
+                    <Text fw={700}>Net Earnings</Text>
+                  </Grid.Col>
+                  <Grid.Col span={3}>
+                    <Text ta="right">{formatAmount(latest.netEarnings)}</Text>
+                  </Grid.Col>
+                  <Grid.Col span={3}>
+                    <Text ta="right">{ytd.net?.toFixed(2)}</Text>
+                  </Grid.Col>
+                </Grid>
+              </Box>
+            </Box>
+          </Stack>
+        </Card>
+      </Stack>
     </Container>
   );
 }
@@ -235,7 +300,7 @@ export default function PayStubPage() {
 
 function TableHeader({ title }: { title: string }) {
   return (
-    <Box mt="md" style={{ borderBottom: '2px solid black' }}>
+    <Box mt="md" style={{ borderBottom: "2px solid black" }}>
       <Grid>
         <Grid.Col span={6}><Text fw={700}>{title}</Text></Grid.Col>
         <Grid.Col span={2}><Text ta="right">Amount</Text></Grid.Col>

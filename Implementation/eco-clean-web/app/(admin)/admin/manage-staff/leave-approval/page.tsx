@@ -161,10 +161,10 @@ export default function LeaveApprovalPage() {
             <Stack gap="lg">
               <Group justify="space-between" align="flex-start" gap="md">
                 <div>
-                  <Text fw={700} c="#0f172a">
+                  <Text fw={700}>
                     Approval list
                   </Text>
-                  <Text size="sm" c="#475569" mt={6}>
+                  <Text size="sm" c="dimmed" mt={6}>
                     Each row shows the request window, leave type, current
                     status, and approval actions.
                   </Text>
@@ -204,7 +204,7 @@ export default function LeaveApprovalPage() {
                             leaveRequests.map((leave) => (
                               <Table.Tr key={leave.id}>
                                 <Table.Td>
-                                  <Text fw={600} c="#0f172a">
+                                  <Text fw={600}>
                                     {leave.staff?.name ||
                                       "Unknown staff member"}
                                   </Text>

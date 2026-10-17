@@ -151,21 +151,20 @@ export default function EnterAvailabilityPage() {
   }
 
   return (
-    <Container p={0} className="staff-app-page">
+    <Container p={0}>
       <Box component="form" onSubmit={form.onSubmit(handleSubmit)}>
-        <Stack className="staff-page-stack">
+        <Stack gap="sm" p="sm">
           <Card
             withBorder
             radius="lg"
             p="lg"
-            className="staff-app-surface staff-app-surface--hero"
           >
             <Group justify="space-between" align="flex-start" gap="md">
               <Box>
                 <Text
                   size="xs"
                   fw={700}
-                  c="#64748b"
+                  c="dimmed"
                   tt="uppercase"
                   style={{ letterSpacing: "0.08em" }}
                 >
@@ -185,8 +184,8 @@ export default function EnterAvailabilityPage() {
             </Group>
           </Card>
 
-          <SimpleGrid cols={{ base: 1, sm: 2 }} className="staff-summary-grid">
-            <Card withBorder radius="lg" p="md" className="staff-app-surface">
+          <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm">
+            <Card withBorder radius="lg" p="md">
               <Group align="flex-start" wrap="nowrap">
                 <ThemeIcon size={40} radius="lg" color="lime" variant="light">
                   <IoCalendar size={20} />
@@ -200,7 +199,7 @@ export default function EnterAvailabilityPage() {
               </Group>
             </Card>
 
-            <Card withBorder radius="lg" p="md" className="staff-app-surface">
+            <Card withBorder radius="lg" p="md">
               <Group align="flex-start" wrap="nowrap">
                 <ThemeIcon size={40} radius="lg" color="lime" variant="light">
                   <IoTime size={20} />
@@ -215,9 +214,9 @@ export default function EnterAvailabilityPage() {
             </Card>
           </SimpleGrid>
 
-          <Card withBorder radius="lg" p="lg" className="staff-app-surface">
+          <Card withBorder radius="lg" p="lg">
             <Stack gap="md">
-              <SimpleGrid cols={{ base: 1, sm: 2 }} className="staff-form-grid">
+              <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm">
                 <DateInput
                   label="Today's Date"
                   value={form.values.todaysDate}
@@ -250,7 +249,7 @@ export default function EnterAvailabilityPage() {
             withBorder
             radius="lg"
             p={0}
-            className="staff-app-surface staff-mobile-table-card"
+            style={{ overflow: "hidden" }}
           >
             <Box p="md">
               <Text fw={700}>Weekly shift availability</Text>

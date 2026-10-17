@@ -37,21 +37,15 @@ const ConfirmCancellationModal = ({ onSuccess }: Props) => {
       onClose={closeConfirmCancel}
       title="Confirm Deletion"
       centered
-      classNames={{
-        content: "app-modal__content",
-        header: "app-modal__header",
-        title: "app-modal__title",
-        body: "app-modal__body",
-      }}
     >
       <Stack gap="md">
-        <Paper withBorder radius="md" p="md" className="app-modal__section">
+        <Paper withBorder radius="md" p="md">
           <Text size="sm">
             Are you sure that you want to proceed? This action is irreversible.
           </Text>
         </Paper>
 
-        <Paper withBorder radius="md" p="md" className="app-modal__footer">
+        <Paper withBorder radius="md" p="md">
           <Group justify="flex-end">
             <Button color="gray" onClick={closeConfirmCancel}>
               Cancel

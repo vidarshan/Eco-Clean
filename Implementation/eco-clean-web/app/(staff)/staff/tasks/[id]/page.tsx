@@ -599,13 +599,12 @@ const Page = () => {
   };
 
   return (
-    <Container p={0} mih="100vh" className="staff-app-page">
+    <Container p={0} mih="100vh">
       <Stack gap="sm" p="md">
         <Card
           radius="lg"
           withBorder
           p={HERO_PADDING}
-          className="staff-app-surface staff-app-surface--hero"
         >
           <Group justify="space-between" align="start" mb="sm">
             <Box>
@@ -757,7 +756,7 @@ const Page = () => {
           <AiTaskAssistantCard data={aiTaskAssistant} />
         ) : null}
 
-        <Card radius="lg" withBorder p="md" className="staff-app-surface">
+        <Card radius="lg" withBorder p="md">
           <Group mb="sm" gap="xs">
             <ThemeIcon radius="lg" variant="light" color="teal">
               <IoPerson size={16} />
@@ -781,7 +780,7 @@ const Page = () => {
                   <Group
                     key={member.id}
                     justify="space-between"
-                    className="staff-task-detail__row"
+                    py="0.35rem"
                   >
                     <Box>
                       <Text size="sm" lh={0} fw={isMe ? 700 : 500}>
@@ -822,7 +821,6 @@ const Page = () => {
             radius="lg"
             withBorder
             p={CARD_PADDING}
-            className="staff-app-surface"
           >
             <Group mb="sm" gap="xs">
               <ThemeIcon radius="lg" variant="light" color="lime">
@@ -876,7 +874,6 @@ const Page = () => {
           radius="lg"
           withBorder
           p={CARD_PADDING}
-          className="staff-app-surface"
         >
           <Group mb="sm" gap="xs">
             <ThemeIcon radius="lg" variant="light" color="teal">
@@ -925,7 +922,6 @@ const Page = () => {
           radius="lg"
           withBorder
           p={CARD_PADDING}
-          className="staff-app-surface"
         >
           <Group mb="sm" gap="xs">
             <ThemeIcon radius="lg" variant="light" color="blue">
@@ -979,7 +975,6 @@ const Page = () => {
           radius="lg"
           withBorder
           p={CARD_PADDING}
-          className="staff-app-surface"
         >
           <Group mb="sm" gap="xs">
             <ThemeIcon radius="lg" variant="light" color="grape">
@@ -1062,7 +1057,6 @@ const Page = () => {
           radius="lg"
           withBorder
           p={CARD_PADDING}
-          className="staff-app-surface"
         >
           <Group mb="sm" gap="xs">
             <ThemeIcon radius="lg" variant="light" color="orange">
@@ -1124,7 +1118,6 @@ const Page = () => {
             radius="lg"
             withBorder
             p={CARD_PADDING}
-            className="staff-app-surface"
           >
             <Group mb="sm" gap="xs">
               <ThemeIcon radius="lg" variant="light" color="orange">
@@ -1173,7 +1166,6 @@ const Page = () => {
               <Dropzone
                 accept={["image/png", "image/jpeg", "image/webp"]}
                 maxFiles={10}
-                className="staff-task-detail__dropzone"
                 disabled={visitNoteLimitReached || isUploading}
                 onDrop={async (files) => {
                   const uploaded = await startUpload(files);

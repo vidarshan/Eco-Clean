@@ -412,19 +412,10 @@ export default function ManagePayPeriodsPage() {
     >
       <Stack gap="lg">
         <Stack gap="lg">
-          <Paper
-            withBorder
-            radius="lg"
-            p="md"
-            className="admin-page-frame__stat"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(247, 254, 231, 0.78), rgba(255, 255, 255, 0.96))",
-            }}
-          >
+          <Paper withBorder radius="lg" p="md">
             <Group justify="space-between" align="flex-end" gap="md">
               <Box maw={520}>
-                <Text fw={700} c="#0f172a">
+                <Text fw={700}>
                   Payroll run setup
                 </Text>
                 <Text size="sm" c="dimmed" mt={4}>
@@ -445,18 +436,13 @@ export default function ManagePayPeriodsPage() {
             />
           </Paper>
 
-          <Paper
-            withBorder
-            radius="lg"
-            p="md"
-            className="admin-page-frame__surface"
-          >
+          <Paper withBorder radius="lg" p="md">
             <Stack gap="md">
               <Box>
-                <Text fw={700} c="#0f172a">
+                <Text fw={700}>
                   Payroll rows
                 </Text>
-                <Text size="sm" c="#475569" mt={4}>
+                <Text size="sm" c="dimmed" mt={4}>
                   Each employee row is grouped into smaller edit sections so you can work without a wide spreadsheet view.
                 </Text>
               </Box>
@@ -470,11 +456,11 @@ export default function ManagePayPeriodsPage() {
               ) : (
                 <Stack gap="md">
                   {rows.map((row, index) => (
-                    <Paper key={`${row.staffId}-${index}`} withBorder p="md" className="admin-page-frame__stat">
+                    <Paper key={`${row.staffId}-${index}`} withBorder p="md">
                       <Stack gap="md">
                         <Group justify="space-between" align="flex-start" gap="md">
                           <div>
-                            <Text fw={700} c="#0f172a">
+                            <Text fw={700}>
                               {row.staffName}
                             </Text>
                             <Text size="sm" c="dimmed">
@@ -494,7 +480,7 @@ export default function ManagePayPeriodsPage() {
                         <SimpleGrid cols={{ base: 1, xl: 3 }} spacing="md">
                           <Paper withBorder p="md" radius="lg">
                             <Stack gap="sm">
-                              <Text fw={700} c="#0f172a">
+                              <Text fw={700}>
                                 Earnings
                               </Text>
                               <NumberInput
@@ -546,7 +532,7 @@ export default function ManagePayPeriodsPage() {
 
                           <Paper withBorder p="md" radius="lg">
                             <Stack gap="sm">
-                              <Text fw={700} c="#0f172a">
+                              <Text fw={700}>
                                 Payroll deductions
                               </Text>
                               <NumberInput
@@ -596,7 +582,7 @@ export default function ManagePayPeriodsPage() {
 
                           <Paper withBorder p="md" radius="lg">
                             <Stack gap="sm">
-                              <Text fw={700} c="#0f172a">
+                              <Text fw={700}>
                                 Other Deductions and totals
                               </Text>
                               <NumberInput
@@ -630,16 +616,7 @@ export default function ManagePayPeriodsPage() {
                                   <Text size="xs" c="dimmed">Gross</Text>
                                   <Text fw={700} mt={4}>{formatMoney(row.grossEarnings)}</Text>
                                 </Paper>
-                                <Paper
-                                  withBorder
-                                  p="sm"
-                                  radius="lg"
-                                  style={{
-                                    borderColor: "rgba(132, 204, 22, 0.24)",
-                                    background:
-                                      "linear-gradient(180deg, rgba(247, 254, 231, 0.9), rgba(255, 255, 255, 0.98))",
-                                  }}
-                                >
+                                <Paper withBorder p="sm" radius="lg">
                                   <Text size="xs" c="dimmed">Net</Text>
                                   <Text fw={800} mt={4}>{formatMoney(row.netEarnings)}</Text>
                                 </Paper>
@@ -651,7 +628,7 @@ export default function ManagePayPeriodsPage() {
                     </Paper>
                   ))}
 
-                  <Paper withBorder p="md" className="admin-page-frame__stat">
+                  <Paper withBorder p="md">
                     <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
                       <div>
                         <Text size="xs" c="dimmed">Total deductions</Text>

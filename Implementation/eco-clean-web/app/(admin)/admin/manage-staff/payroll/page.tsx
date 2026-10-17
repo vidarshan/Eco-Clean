@@ -162,19 +162,19 @@ export default function ManagePayPeriodsPage() {
               </Badge>
 
               <div>
-                <Text fw={700} c="#0f172a">
+                <Text fw={700}>
                   Generate the annual period set
                 </Text>
-                <Text size="sm" c="#475569" mt={6}>
+                <Text size="sm" c="dimmed" mt={6}>
                   This creates the biweekly periods used by timesheets and payroll. Run it only when the year has not been generated yet.
                 </Text>
               </div>
 
               <div>
-                <Text size="xs" fw={700} c="#64748b">
+                <Text size="xs" fw={700} c="dimmed">
                   Current setup target
                 </Text>
-                <Text fw={700} c="#0f172a" mt={6}>
+                <Text fw={700} mt={6}>
                   Payroll year 2026
                 </Text>
               </div>
@@ -193,10 +193,10 @@ export default function ManagePayPeriodsPage() {
             <Stack gap="lg">
               <Group justify="space-between" align="flex-start" gap="md">
                 <div>
-                  <Text fw={700} c="#0f172a">
+                  <Text fw={700}>
                     Existing payroll periods
                   </Text>
-                  <Text size="sm" c="#475569" mt={6}>
+                  <Text size="sm" c="dimmed" mt={6}>
                     Review the period list here, then open the payroll admin screen when you are ready to generate statements.
                   </Text>
                 </div>
